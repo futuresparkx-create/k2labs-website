@@ -1,0 +1,61 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "v*"
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Astro site
+        run: npm run build
+
+      - name: Log in to container registry
+        run: |
+          echo "${{ secrets.REGISTRY_PASSWORD }}" | \
+          docker login ${{ secrets.REGISTRY_URL }} \
+            -u "${{ secrets.REGISTRY_USERNAME }}" \
+            --password-stdin
+
+      - name: Extract version info
+        id: vars
+        run: |
+          if [[ "${GITEA_REF}" == refs/tags/* ]]; then
+            VERSION=${GITEA_REF#refs/tags/v}
+          else
+            VERSION=latest
+          fi
+          SHORT_SHA=$(echo $GITEA_SHA | cut -c1-7)
+          echo "version=$VERSION" >> $GITEA_OUTPUT
+          echo "sha=sha-$SHORT_SHA" >> $GITEA_OUTPUT
+
+      - name: Build Docker image
+        run: |
+          IMAGE=${{ secrets.REGISTRY_URL }}/${{ gitea.repository }}
+          docker build \
+            -f deploy/Dockerfile \
+            -t $IMAGE:${{ steps.vars.outputs.version }} \
+            -t $IMAGE:${{ steps.vars.outputs.sha }} \
+            .
+
+      - name: Push Docker image
+        run: |
+          IMAGE=${{ secrets.REGISTRY_URL }}/${{ gitea.repository }}
+          docker push $IMAGE:${{ steps.vars.outputs.version }}
+          docker push $IMAGE:${{ steps.vars.outputs.sha }}
