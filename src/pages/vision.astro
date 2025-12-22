@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import fs from "fs/promises";
+import { marked } from "marked";
+
+const md = await fs.readFile(new URL("../content/vision.md", import.meta.url), "utf-8");
+const html = marked.parse(md);
+---
+
+<BaseLayout
+  title="Vision — K2Labs"
+  description="Our vision is to enable communities to solve critical problems by transforming knowledge into ethical, accessible action."
+>
+  <section class="pt-24">
+    <div class="content-panel">
+      <h1 class="text-4xl font-semibold mb-6">Our Vision</h1>
+      <article class="prose prose-invert lg:prose-lg" set:html={html}></article>
+    </div>
+  </section>
+</BaseLayout>

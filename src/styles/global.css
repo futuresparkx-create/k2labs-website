@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* base polish */
+html {
+  scroll-behavior: smooth;
+  font-size: 18px;
+}
+
+@layer base {
+  html, body {
+    @apply antialiased;
+  }
+
+  body {
+    background-image: url('/hero-bg.svg');
+    background-size: cover;
+    background-position: center;
+    @apply text-slate-50;
+  }
+
+  .content-panel {
+    @apply bg-black/60 backdrop-blur-md p-8 rounded-xl max-w-4xl mx-auto my-12;
+  }
+
+  h1, h2, h3, h4 {
+    @apply text-white;
+  }
+
+  a {
+    @apply text-amber hover:text-amber;
+  }
+
+  /* Avoid applying 'prose' itself — only set sizing & color */
+  .prose {
+    @apply text-lg leading-relaxed;
+  }
+
+  .prose p,
+  .prose li {
+    @apply text-slate-100;
+  }
+}
