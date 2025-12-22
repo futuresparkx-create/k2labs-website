@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  k2labs:
+    build: .
+    image: k2labs:latest
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    # volumes: # optionally mount for local dev
+    #   - .:/app
+dockercompose: {}
