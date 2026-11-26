@@ -23,12 +23,12 @@ const baseTrim = base.replace(/\/$/, ""); // "/k2labs-website"
 const stripBase = (p) => (p.startsWith(baseTrim) ? p.slice(baseTrim.length) : p);
 
 // English lives at /, Tamil lives at /ta/
-const href = (path) => (isTa ? (path === "/" ? `${baseTrim}/ta` : `${baseTrim}/ta${path}`) : (path === "/" ? baseTrim + "/" : `${baseTrim}${path}`));
+const href = (path) => (isTa ? (path === "/" ? `${baseTrim}/ta` : `${baseTrim}/ta${path}`) : (path === "/" ? baseTrim + "/" : `${baseTrim}${path}`)) + (path !== "/" && !path.endsWith("/") ? "/" : "");
 
 const currentBase = stripBase(Astro.url.pathname) || "/";
 const currentPage = currentBase.replace(/^\/ta(\/|$)/, "/") || "/";
 const currentPageStripped = currentPage.replace(/\/$/, "") || "";
-const otherLocaleHref = isTa ? `${baseTrim}${currentPageStripped || "/"}` : `${baseTrim}/ta${currentPageStripped || ""}`;
+const otherLocaleHref = isTa ? `${baseTrim}${currentPageStripped || "/"}${currentPageStripped ? "/" : ""}` : `${baseTrim}/ta${currentPageStripped || "/"}`;
 
 // --- Localized strings (language-switcher + nav + footer) ───────────────
 const NAV = [
@@ -51,14 +51,14 @@ const footer = FOOTER_LINES.map((l) => l.replace("{year}", String(year)));
 const site = Astro.site;
 const pagePath = currentPageStripped || "";
 const toAbsolute = (path) => site ? new URL(`${baseTrim}${path}`, site).toString() : undefined;
-const canonical = toAbsolute(isTa ? (pagePath === "" ? "/ta/" : `/ta${pagePath}`) : (pagePath === "" ? "/" : pagePath));
+const canonical = toAbsolute(isTa ? (pagePath === "" ? "/ta/" : `/ta${pagePath}/`) : (pagePath === "" ? "/" : `${pagePath}/`));
 const altLinks = site
   ? (["en", "ta"] as const).map((l) => ({
       hreflang: l,
-      href: toAbsolute(l === "ta" ? (pagePath === "" ? "/ta/" : `/ta${pagePath}`) : (pagePath === "" ? "/" : pagePath)),
+      href: toAbsolute(l === "ta" ? (pagePath === "" ? "/ta/" : `/ta${pagePath}/`) : (pagePath === "" ? "/" : `${pagePath}/`)),
     }))
   : [];
-const xDefault = site ? toAbsolute(pagePath === "" ? "/" : pagePath) : undefined;
+const xDefault = site ? toAbsolute(pagePath === "" ? "/" : `${pagePath}/`) : undefined;
 ---
 
 <!DOCTYPE html>
