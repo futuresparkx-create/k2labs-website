@@ -57,8 +57,8 @@ function retrieve(query, kb) {
     const score = entry.tags.reduce((n, tag) => n + (q.includes(tag.toLowerCase()) ? 1 : 0), 0);
     return { entry, score };
   });
-  const top = scored.filter((s) => s.score > 0).sort((a, b) => b.score - a.score).slice(0, 3);
-  const chosen = top.length ? top.map((s) => s.entry) : kb.slice(0, 3);
+  const top = scored.filter((s) => s.score > 0).sort((a, b) => b.score - a.score).slice(0, 1);
+  const chosen = top.length ? top.map((s) => s.entry) : kb.slice(0, 1);
   return chosen.map((e) => e.text).join(" ");
 }
 
