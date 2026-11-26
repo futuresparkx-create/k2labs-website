@@ -1,0 +1,50 @@
+---
+import "../styles/chat.css";
+
+interface Props {
+  locale?: "en" | "ta";
+}
+
+const { locale = "en" } = Astro.props;
+const isTa = locale === "ta";
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+const labels = isTa
+  ? {
+      toggle: "K2Labs உதவி",
+      title: "K2Labs உதவி",
+      subtitle: "உள்ளூர் மாதிரி · ஆங்கிலம்",
+      placeholder: "K2Labs பற்றி கேளுங்கள்...",
+      send: "அனுப்பு",
+      close: "மூடு",
+    }
+  : {
+      toggle: "Ask K2Labs",
+      title: "Ask K2Labs",
+      subtitle: "Local model · runs in your browser",
+      placeholder: "Ask about K2Labs, labs, tracks, or enrollment...",
+      send: "Send",
+      close: "Close",
+    };
+---
+
+<div class="chat-widget" data-locale={locale}>
+  <button class="chat-toggle" type="button" aria-expanded="false" aria-controls="chat-panel">
+    {labels.toggle}
+  </button>
+
+  <section id="chat-panel" class="chat-panel" hidden aria-label={labels.title}>
+    <div class="chat-head">
+      <span>{labels.title}</span>
+      <small>{labels.subtitle}</small>
+    </div>
+    <div class="chat-log" aria-live="polite"></div>
+    <div class="chat-status">Model loads on first question.</div>
+    <form class="chat-form">
+      <input type="text" autocomplete="off" placeholder={labels.placeholder} aria-label={labels.placeholder} />
+      <button type="submit">{labels.send}</button>
+    </form>
+  </section>
+</div>
+
+<script type="module" src={`${base}/chat/chat.js`}></script>

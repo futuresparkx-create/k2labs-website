@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Experience from "../components/Experience.astro";
+---
+
+<BaseLayout
+  title="K2Labs Story — a guided narrative"
+  description="A guided narrative through K2Labs’ community, vision, and labs."
+  locale="en"
+>
+  <main class="max-w-5xl mx-auto px-6 py-12">
+    <p class="brand-tagline text-brand-orange">A GUIDED NARRATIVE</p>
+    <h1 class="brand-wordmark mt-3 text-4xl md:text-6xl text-brand-off">Follow the story</h1>
+    <p class="mt-4 max-w-2xl text-lg text-brand-grey">
+      K2Labs is not a brochure. Follow the narrative: a small-town lab, a vision for
+      community-owned technology, and two working labs. Each chapter is narrated,
+      animated, and interactive.
+    </p>
+
+    <div class="mt-10 space-y-8">
+      <section>
+        <h2>Chapter 1 — The lab in the town</h2>
+        <Experience slug="home" locale="en" />
+      </section>
+      <section>
+        <h2>Chapter 2 — A future owned by communities</h2>
+        <Experience slug="vision" locale="en" />
+      </section>
+      <section>
+        <h2>Chapter 3 — Labs as prototypes</h2>
+        <Experience slug="labs" locale="en" />
+      </section>
+    </div>
+  </main>
+</BaseLayout>

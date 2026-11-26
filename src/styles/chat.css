@@ -1,0 +1,85 @@
+/* Floating K2Labs assistant */
+.chat-widget {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 60;
+  font-family: "Nunito", system-ui, sans-serif;
+}
+.chat-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #F26522;
+  background: #07101f;
+  color: #F5F3EE;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font: 800 14px/1 "Nunito", system-ui, sans-serif;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(7, 16, 31, .55);
+}
+.chat-toggle:hover { background: #1D2E6E; }
+.chat-toggle:focus-visible { outline: 2px solid #F26522; outline-offset: 3px; }
+.chat-panel {
+  width: min(360px, calc(100vw - 32px));
+  margin-top: 10px;
+  background: #07101f;
+  border: 1px solid #1D2E6E;
+  border-radius: 14px;
+  box-shadow: 0 18px 50px rgba(7, 16, 31, .6);
+  overflow: hidden;
+}
+.chat-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 14px;
+  background: #1D2E6E;
+  border-bottom: 2px solid #F26522;
+  color: #F5F3EE;
+  font-weight: 800;
+}
+.chat-head small { color: #9ca3af; font-weight: 600; }
+.chat-log {
+  max-height: 260px;
+  overflow-y: auto;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.45;
+}
+.chat-msg { border-radius: 10px; padding: 9px 12px; background: #0b1a33; color: #F5F3EE; }
+.chat-msg.user { background: #1D2E6E; }
+.chat-msg.assistant { border-left: 3px solid #F26522; }
+.chat-msg.system { color: #9ca3af; font-size: 12px; }
+.chat-status { padding: 0 14px 8px; color: #9ca3af; font-size: 12px; }
+.chat-form { display: flex; gap: 8px; padding: 12px 14px 14px; border-top: 1px solid #1D2E6E; }
+.chat-form input {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid #1D2E6E;
+  background: #0b1a33;
+  color: #F5F3EE;
+  border-radius: 9px;
+  padding: 10px 12px;
+  font: 600 14px/1.2 "Nunito", system-ui, sans-serif;
+}
+.chat-form input:focus { outline: 2px solid #F26522; }
+.chat-form button {
+  border: 0;
+  background: #F26522;
+  color: #07101f;
+  border-radius: 9px;
+  padding: 10px 14px;
+  font: 800 14px/1 "Nunito", system-ui, sans-serif;
+  cursor: pointer;
+}
+.chat-form button:disabled { opacity: .55; cursor: wait; }
+@media (max-width: 640px) {
+  .chat-widget { right: 12px; bottom: 12px; }
+  .chat-panel { width: calc(100vw - 24px); }
+}

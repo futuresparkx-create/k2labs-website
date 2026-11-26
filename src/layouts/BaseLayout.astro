@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Chat from "../components/Chat.astro";
 
 interface Props {
   title?: string;
@@ -34,6 +35,7 @@ const otherLocaleHref = isTa
 
 // --- Localized strings (language-switcher + nav + footer) ───────────────
 const NAV = [
+  { path: "/story", en: "Story", ta: "கதை" },
   { path: "/vision", en: "Vision", ta: "பார்வை" },
   { path: "/mission", en: "Mission", ta: "பணி" },
   { path: "/labs", en: "Labs", ta: "ஆய்வகங்கள்" },
@@ -89,7 +91,7 @@ const xDefault = site ? toAbsolute(pagePath === "" ? "/" : `${pagePath}/`) : und
     <header class="site-header">
       <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center gap-4">
         <a href={href("/")} class="flex items-center gap-3 shrink-0">
-          <img src={`${baseTrim}/brand-logo-orange2.png`} alt="K2Labs logo" class="brand-mark h-16 w-16 rounded-lg object-contain" />
+          <img src={`${baseTrim}/brand-logo-dark.png`} alt="K2Labs logo" class="brand-mark h-20 w-20 object-contain" />
           <span class="flex flex-col leading-tight">
             <span class="brand-wordmark text-xl md:text-2xl">
               <span class="text-brand-off">K</span><span class="text-brand-orange">2</span><span class="text-brand-grey">Labs</span>
@@ -136,5 +138,7 @@ const xDefault = site ? toAbsolute(pagePath === "" ? "/" : `${pagePath}/`) : und
         <p class="brand-tagline mt-5 text-brand-orange">K2Labs · Innovations</p>
       </div>
     </footer>
+
+    <Chat locale={locale} />
   </body>
 </html>

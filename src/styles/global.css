@@ -94,6 +94,7 @@ html {
   transform-origin: center;
   transition: transform 450ms cubic-bezier(.2,.9,.2,1);
   animation: markPulse 7s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(242,101,34,0.35));
 }
 .brand-mark:hover {
   transform: scale(1.06) rotate(-1deg);

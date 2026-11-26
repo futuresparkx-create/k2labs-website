@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Experience from "../../components/Experience.astro";
+---
+
+<BaseLayout
+  title="K2Labs கதை — வழிகாட்டும் விவரிப்பு"
+  description="K2Labs சமூகம், பார்வை மற்றும் ஆய்வகங்கள் வழியாக ஒரு வழிகாட்டும் கதை."
+  locale="ta"
+>
+  <main class="max-w-5xl mx-auto px-6 py-12">
+    <p class="brand-tagline text-brand-orange">வழிகாட்டும் கதை</p>
+    <h1 class="brand-wordmark mt-3 text-4xl md:text-6xl text-brand-off">கதையைப் பின்பற்றுங்கள்</h1>
+    <p class="mt-4 max-w-2xl text-lg text-brand-grey">
+      K2Labs ஒரு பிரசுரம் அல்ல. ஒரு சிறிய நகர ஆய்வகம், சமூகங்களுக்கு சொந்தமான
+      தொழில்நுட்பப் பார்வை, மற்றும் இரண்டு செயல்படும் ஆய்வகங்கள் — ஒவ்வொரு அத்தியாயமும்
+      விவரிப்பு, அனிமேஷன் மற்றும் ஊடாடல் உடன்.
+    </p>
+
+    <div class="mt-10 space-y-8">
+      <section>
+        <h2>அத்தியாயம் 1 — நகரத்தின் ஆய்வகம்</h2>
+        <Experience slug="home" locale="ta" />
+      </section>
+      <section>
+        <h2>அத்தியாயம் 2 — சமூகங்களுக்கு சொந்தமான எதிர்காலம்</h2>
+        <Experience slug="vision" locale="ta" />
+      </section>
+      <section>
+        <h2>அத்தியாயம் 3 — முன்மாதிரி ஆய்வகங்கள்</h2>
+        <Experience slug="labs" locale="ta" />
+      </section>
+    </div>
+  </main>
+</BaseLayout>
