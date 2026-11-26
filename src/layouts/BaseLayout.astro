@@ -28,7 +28,9 @@ const href = (path) => (isTa ? (path === "/" ? `${baseTrim}/ta` : `${baseTrim}/t
 const currentBase = stripBase(Astro.url.pathname) || "/";
 const currentPage = currentBase.replace(/^\/ta(\/|$)/, "/") || "/";
 const currentPageStripped = currentPage.replace(/\/$/, "") || "";
-const otherLocaleHref = isTa ? `${baseTrim}${currentPageStripped || "/"}${currentPageStripped ? "/" : ""}` : `${baseTrim}/ta${currentPageStripped || "/"}`;
+const otherLocaleHref = isTa
+  ? `${baseTrim}${currentPageStripped ? `${currentPageStripped}/` : "/"}`
+  : `${baseTrim}/ta${currentPageStripped ? `${currentPageStripped}/` : "/"}`;
 
 // --- Localized strings (language-switcher + nav + footer) ───────────────
 const NAV = [
