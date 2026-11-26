@@ -1,15 +1,23 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Experience from "../components/Experience.astro";
 ---
 
 <BaseLayout
   title="Research Labs — K2Labs"
   description="Active research labs at K2Labs focused on AI systems and medical intelligence for real-world community challenges."
 >
-  <section class="max-w-4xl mx-auto px-6 pt-24">
-    <h1 class="text-4xl font-semibold">Research Labs</h1>
+  <section class="max-w-4xl mx-auto px-6 pt-16">
+    <h1 class="text-3xl md:text-4xl font-semibold">Research Labs</h1>
+  </section>
 
-    <p class="mt-8 text-lg text-slate-300">
+  <!-- Narrated lab stage with click-to-hear cards and quick checks -->
+  <section class="mt-8">
+    <Experience slug="labs" locale="en" />
+  </section>
+
+  <section class="max-w-6xl mx-auto px-6 mt-20">
+    <p class="text-lg text-slate-300">
       K2Labs operates focused research labs that address real-world challenges
       identified directly from communities. Our work is grounded in practical
       constraints, ethical responsibility, and accessibility.

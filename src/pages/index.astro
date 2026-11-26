@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Experience from "../components/Experience.astro";
+
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
@@ -7,32 +9,36 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   title="K2Labs — Knowledge to Action"
   description="A community-driven research lab transforming knowledge into accessible, ethical solutions for real-world problems."
 >
-  <!-- Hero -->
-  <section class="max-w-6xl mx-auto px-6 pt-24">
-    <h1 class="text-4xl md:text-5xl font-semibold leading-tight">
+  <!-- Narrated cover -->
+  <section class="max-w-6xl mx-auto px-6 pt-16">
+    <h1 class="text-3xl md:text-4xl font-semibold leading-tight">
       Knowledge, tested in labs,<br />
       transformed into action.
     </h1>
+  </section>
 
-    <p>
-  K2Labs is a research-first community lab where learning, building, and
-  contributing are designed to be <strong>hands-on, collaborative, and genuinely fun</strong>.
-</p>
+  <section class="mt-8">
+    <Experience slug="home" locale="en" />
+  </section>
 
-<p>
-  We believe the best learning happens by solving real problems.
-  Students don’t just study systems here — they help build them.
-</p>
+  <!-- Readable summary -->
+  <section class="max-w-6xl mx-auto px-6 mt-20">
+    <p class="max-w-3xl text-slate-300">
+      K2Labs is a research-first community lab where learning, building, and
+      contributing are designed to be <strong>hands-on, collaborative, and
+      genuinely fun</strong>. We believe the best learning happens by solving
+      real problems — students don't just study systems here, they help build them.
+    </p>
   </section>
 
   <!-- What We Do -->
-  <section class="max-w-6xl mx-auto px-6 mt-24">
+  <section class="max-w-6xl mx-auto px-6 mt-20">
     <h2 class="text-2xl font-semibold">What We Do</h2>
 
     <div class="grid md:grid-cols-2 gap-8 mt-8 text-slate-300">
       <p>
-        We identify real problems faced by communities—especially in Tier-3
-        environments—and convert them into focused research questions.
+        We identify real problems faced by communities — especially in Tier-3
+        environments — and convert them into focused research questions.
       </p>
       <p>
         Through collaboration between students, volunteers, and experts,
@@ -43,50 +49,43 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   </section>
 
   <!-- Research Focus -->
-  <section class="max-w-6xl mx-auto px-6 mt-24">
+  <section class="max-w-6xl mx-auto px-6 mt-20">
     <h2 class="text-2xl font-semibold">Active Research Labs</h2>
 
     <div class="grid md:grid-cols-2 gap-10 mt-10">
-      <!-- AI Systems Lab -->
       <div class="border border-slate-800 rounded-lg p-6">
         <h3 class="text-xl font-semibold">AI Systems Lab</h3>
         <p class="mt-4 text-slate-300">
           Researching practical AI systems that work under real-world constraints
           and support communities where access to intelligent tools is limited.
         </p>
-        <p class="mt-4 text-sm text-slate-400">
-          Current state: Prototype
-        </p>
+        <p class="mt-4 text-sm text-slate-400">Current state: Prototype</p>
       </div>
 
-      <!-- Medical Intelligence Lab -->
       <div class="border border-slate-800 rounded-lg p-6">
         <h3 class="text-xl font-semibold">Medical Intelligence Lab</h3>
         <p class="mt-4 text-slate-300">
           Building assistive intelligence to support patients and doctors,
           focusing on usability, safety, and human-in-the-loop decision making.
         </p>
-        <p class="mt-4 text-sm text-slate-400">
-          Current state: Prototype
-        </p>
+        <p class="mt-4 text-sm text-slate-400">Current state: Prototype</p>
       </div>
     </div>
   </section>
 
   <!-- Philosophy -->
-  <section class="max-w-6xl mx-auto px-6 mt-24">
+  <section class="max-w-6xl mx-auto px-6 mt-20">
     <h2 class="text-2xl font-semibold">Our Philosophy</h2>
 
     <p class="mt-6 max-w-3xl text-slate-300">
-      Knowledge has value only when it improves human life.
-      At K2Labs, we believe meaningful innovation begins with communities,
-      grows through responsible research, and matures into actions that are
-      ethical, affordable, and accessible.
+      Knowledge has value only when it improves human life. At K2Labs, meaningful
+      innovation begins with communities, grows through responsible research, and
+      matures into actions that are ethical, affordable, and accessible.
     </p>
   </section>
 
   <!-- Call to Collaborate -->
-  <section class="max-w-6xl mx-auto px-6 mt-24 mb-24">
+  <section class="max-w-6xl mx-auto px-6 mt-20 mb-24">
     <div class="border border-slate-800 rounded-lg p-8">
       <h2 class="text-2xl font-semibold">Collaborate With Us</h2>
       <p class="mt-4 max-w-2xl text-slate-300">
@@ -95,7 +94,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
       </p>
 
       <a
-        href={`${base}/contact`}
+        href={`${base}/contact/`}
         class="inline-block mt-6 px-6 py-3 rounded-md bg-slate-100 text-slate-900 font-medium hover:bg-white"
       >
         Get in touch

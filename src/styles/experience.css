@@ -1,0 +1,133 @@
+/* K2Labs narrated experience layer — paper-stage + player */
+
+.exp-page {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.exp { display: block; }
+
+.stage-wrap {
+  background: #0b0f14;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+}
+
+.stage {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  background: #f7f1e7;
+  overflow: hidden;
+}
+
+.stage text { font-family: "Inter", system-ui, sans-serif; }
+
+.stage .part {
+  opacity: 0;
+  transition: opacity 0.85s ease;
+}
+.stage .part.on { opacity: 1; }
+
+.stage .node { cursor: pointer; }
+.stage .node:hover circle { filter: none; }
+.stage .node.active circle { stroke-width: 4; }
+
+.stage .pulse {
+  animation: breathe 4.2s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.75; }
+}
+.stage .bob {
+  animation: bob 3.4s ease-in-out infinite;
+}
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.stage .sway {
+  animation: sway 5s ease-in-out infinite;
+  transform-origin: center;
+}
+@keyframes sway {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stage .pulse, .stage .bob, .stage .sway { animation: none; }
+}
+
+/* player bar */
+.player {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  padding: 10px 14px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  color: #e7e0d4;
+  font: 14px/1 "Inter", system-ui, sans-serif;
+}
+.player button {
+  border: 1px solid #475569;
+  background: #1e293b;
+  color: #f8f3e6;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+.player button:hover { background: #27364a; border-color: #f59e0b; }
+.player button:focus-visible { outline: 2px solid #f59e0b; outline-offset: 2px; }
+.exp-play[aria-pressed="true"] {
+  background: #f59e0b;
+  color: #0f172a;
+  border-color: #f59e0b;
+}
+.exp-scrub {
+  flex: 1;
+  min-width: 100px;
+  accent-color: #f59e0b;
+}
+.exp-time { font-variant-numeric: tabular-nums; color: #cbd5e1; }
+.exp-captions[aria-pressed="false"] { opacity: 0.55; }
+
+/* caption strip — the "paper narration" */
+.caption-bar {
+  margin-top: 14px;
+  padding: 14px 18px;
+  background: #f7f1e7;
+  border: 1px solid #d8ccb2;
+  border-left: 5px solid #f59e0b;
+  border-radius: 10px;
+  color: #1c1917;
+  font: 17px/1.55 "Iowan Old Style", "Georgia", "Times New Roman", serif;
+  font-style: italic;
+}
+.caption-bar.captions-off { visibility: hidden; }
+
+/* interactive stops */
+.checks { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+.check {
+  border: 1px solid #d8ccb2;
+  background: #fff9ee;
+  color: #1c1917;
+  border-radius: 999px;
+  padding: 9px 15px;
+  font: 14px/1.2 "Inter", system-ui, sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+}
+.check:hover, .check:focus-visible { border-color: #f59e0b; outline: none; }
+.check[aria-expanded="true"] { background: #fde68a; border-color: #f59e0b; }
+.answer { display: none; margin-top: 10px; color: #1c1917; font: 15px/1.5 "Inter", system-ui, sans-serif; }
+.answer.revealed { display: block; }

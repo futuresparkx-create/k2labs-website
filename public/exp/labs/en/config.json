@@ -1,0 +1,30 @@
+{
+ "slug": "labs",
+ "lang": "en",
+ "beats": [
+  {
+   "n": 1,
+   "audio": "audio/en/1.mp3",
+   "dur": 4.32,
+   "caption": "Two labs, one question: what can technology do for a small town?"
+  },
+  {
+   "n": 2,
+   "audio": "audio/en/2.mp3",
+   "dur": 5.93,
+   "caption": "The AI Systems Lab prototypes simple, interpretable systems that work under real constraints."
+  },
+  {
+   "n": 3,
+   "audio": "audio/en/3.mp3",
+   "dur": 4.68,
+   "caption": "The Medical Intelligence Lab studies health questions with community data, carefully."
+  },
+  {
+   "n": 4,
+   "audio": "audio/en/4.mp3",
+   "dur": 5.83,
+   "caption": "Every lab is a prototype, and it evolves with students, volunteers, and domain experts."
+  }
+ ]
+}

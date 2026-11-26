@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Experience from "../../components/Experience.astro";
 ---
 
 <BaseLayout
@@ -7,10 +8,16 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
   description="K2Labs இல் செயலில் உள்ள ஆராய்ச்சி ஆய்வகங்கள் AI அமைப்புகள் மற்றும் நிஜ உலக சமூக சவால்களுக்கான மருத்துவ நுண்ணறிவு ஆகியவற்றில் கவனம் செலுத்துகின்றன."
   locale="ta"
 >
-  <section class="max-w-4xl mx-auto px-6 pt-24">
-    <h1 class="text-4xl font-semibold">ஆராய்ச்சி ஆய்வகங்கள்</h1>
+  <section class="max-w-4xl mx-auto px-6 pt-16">
+    <h1 class="text-3xl md:text-4xl font-semibold">ஆராய்ச்சி ஆய்வகங்கள்</h1>
+  </section>
 
-    <p class="mt-8 text-lg text-slate-300">K2Labs சமூகங்களில் இருந்து நேரடியாக அடையாளம் காணப்பட்ட நிஜ-உலக சவால்களை எதிர்கொள்ளும் மையப்படுத்தப்பட்ட ஆராய்ச்சி ஆய்வகங்களை இயக்குகிறது. எங்கள் பணி நடைமுறைக் கட்டுப்பாடுகள், நெறிமுறை பொறுப்பு மற்றும் அணுகல்தன்மை ஆகியவற்றை அடிப்படையாகக் கொண்டது.</p>
+  <section class="mt-8">
+    <Experience slug="labs" locale="ta" />
+  </section>
+
+  <section class="max-w-6xl mx-auto px-6 mt-20">
+    <p class="text-lg text-slate-300">K2Labs சமூகங்களில் இருந்து நேரடியாக அடையாளம் காணப்பட்ட நிஜ-உலக சவால்களை எதிர்கொள்ளும் மையப்படுத்தப்பட்ட ஆராய்ச்சி ஆய்வகங்களை இயக்குகிறது. எங்கள் பணி நடைமுறைக் கட்டுப்பாடுகள், நெறிமுறை பொறுப்பு மற்றும் அணுகல்தன்மை ஆகியவற்றை அடிப்படையாகக் கொண்டது.</p>
 
     <p class="mt-6 text-slate-300">அனைத்து ஆய்வகங்களும் தற்போது முன்மாதிரி நிலையில் உள்ளன மற்றும் மாணவர்கள், தன்னார்வலர்கள் மற்றும் டொமைன் நிபுணர்களுடன் தொடர்ச்சியான ஒத்துழைப்பு மூலம் உருவாகின்றன.</p>
   </section>

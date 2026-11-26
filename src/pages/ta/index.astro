@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Experience from "../../components/Experience.astro";
+
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
@@ -8,24 +10,27 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   description="நிஜ உலகப் பிரச்சனைகளுக்கு அறிவை அணுகக்கூடிய, நெறிமுறைத் தீர்வுகளாக மாற்றும் சமூகம் சார்ந்த ஆராய்ச்சி ஆய்வகம்."
   locale="ta"
 >
-  <!-- Hero -->
-  <section class="max-w-6xl mx-auto px-6 pt-24">
-    <h1 class="text-4xl md:text-5xl font-semibold leading-tight">
+  <!-- Narrated cover -->
+  <section class="max-w-6xl mx-auto px-6 pt-16">
+    <h1 class="text-3xl md:text-4xl font-semibold leading-tight">
       அறிவு, ஆய்வகங்களில் சோதிக்கப்பட்டது,<br />
       செயலாக மாற்றப்பட்டது.
     </h1>
+  </section>
 
-    <p class="mt-6 text-slate-200 text-lg">
-      K2Labs என்பது ஆராய்ச்சி-முதல் சமூக ஆய்வகமாகும், அங்கு கற்றல், கட்டமைத்தல் மற்றும் பங்களிப்பு ஆகியவை கைகோர்த்து, ஒத்துழைக்கும் மற்றும் உண்மையான வேடிக்கையாக வடிவமைக்கப்பட்டுள்ளன.
-    </p>
+  <section class="mt-8">
+    <Experience slug="home" locale="ta" />
+  </section>
 
-    <p class="mt-4 text-slate-300 text-lg">
-      உண்மையான சிக்கல்களைத் தீர்ப்பதன் மூலம் சிறந்த கற்றல் நடக்கும் என்று நாங்கள் நம்புகிறோம். மாணவர்கள் இங்கு அமைப்புகளை மட்டும் படிப்பதில்லை - அவர்கள் அவற்றை உருவாக்க உதவுகிறார்கள்.
+  <!-- Readable summary -->
+  <section class="max-w-6xl mx-auto px-6 mt-20">
+    <p class="max-w-3xl text-slate-300">
+      K2Labs என்பது ஆராய்ச்சி-முதல் சமூக ஆய்வகமாகும், அங்கு கற்றல், கட்டமைத்தல் மற்றும் பங்களிப்பு ஆகியவை கைகோர்த்து, ஒத்துழைக்கும் மற்றும் உண்மையான வேடிக்கையாக வடிவமைக்கப்பட்டுள்ளன. உண்மையான சிக்கல்களைத் தீர்ப்பதன் மூலம் சிறந்த கற்றல் நடக்கும் என்று நாங்கள் நம்புகிறோம் — மாணவர்கள் இங்கு அமைப்புகளை மட்டும் படிப்பதில்லை, அவற்றை உருவாக்க உதவுகிறார்கள்.
     </p>
   </section>
 
   <!-- What We Do -->
-  <section class="max-w-6xl mx-auto px-6 mt-24">
+  <section class="max-w-6xl mx-auto px-6 mt-20">
     <h2 class="text-2xl font-semibold">நாம் என்ன செய்கிறோம்</h2>
 
     <div class="grid md:grid-cols-2 gap-8 mt-8 text-slate-300">
@@ -35,18 +40,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   </section>
 
   <!-- Research Focus -->
-  <section class="max-w-6xl mx-auto px-6 mt-24">
+  <section class="max-w-6xl mx-auto px-6 mt-20">
     <h2 class="text-2xl font-semibold">செயலில் உள்ள ஆராய்ச்சி ஆய்வகங்கள்</h2>
 
     <div class="grid md:grid-cols-2 gap-10 mt-10">
-      <!-- AI Systems Lab -->
       <div class="border border-slate-800 rounded-lg p-6">
         <h3 class="text-xl font-semibold">AI சிஸ்டம்ஸ் லேப்</h3>
         <p class="mt-4 text-slate-300">நிஜ உலகக் கட்டுப்பாடுகளின் கீழ் செயல்படும் நடைமுறை AI அமைப்புகளை ஆராய்தல் மற்றும் அறிவார்ந்த கருவிகளுக்கான அணுகல் குறைவாக இருக்கும் சமூகங்களை ஆதரிக்கிறது.</p>
         <p class="mt-4 text-sm text-slate-400">தற்போதைய நிலை: முன்மாதிரி</p>
       </div>
 
-      <!-- Medical Intelligence Lab -->
       <div class="border border-slate-800 rounded-lg p-6">
         <h3 class="text-xl font-semibold">மருத்துவ நுண்ணறிவு ஆய்வகம்</h3>
         <p class="mt-4 text-slate-300">நோயாளிகள் மற்றும் மருத்துவர்களை ஆதரிப்பதற்காக உதவி நுண்ணறிவை உருவாக்குதல், பயன்பாட்டினை, பாதுகாப்பு மற்றும் மனிதர்கள்-இன்-தி-லூப் முடிவெடுப்பதில் கவனம் செலுத்துதல்.</p>
@@ -56,7 +59,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   </section>
 
   <!-- Philosophy -->
-  <section class="max-w-6xl mx-auto px-6 mt-24">
+  <section class="max-w-6xl mx-auto px-6 mt-20">
     <h2 class="text-2xl font-semibold">எங்கள் தத்துவம்</h2>
 
     <p class="mt-6 max-w-3xl text-slate-300">
@@ -65,7 +68,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   </section>
 
   <!-- Call to Collaborate -->
-  <section class="max-w-6xl mx-auto px-6 mt-24 mb-24">
+  <section class="max-w-6xl mx-auto px-6 mt-20 mb-24">
     <div class="border border-slate-800 rounded-lg p-8">
       <h2 class="text-2xl font-semibold">எங்களுடன் ஒத்துழைக்கவும்</h2>
       <p class="mt-4 max-w-2xl text-slate-300">
@@ -73,7 +76,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
       </p>
 
       <a
-        href={`${base}/ta/contact`}
+        href={`${base}/ta/contact/`}
         class="inline-block mt-6 px-6 py-3 rounded-md bg-amber text-slate-900 font-semibold hover:bg-white"
       >
         தொடர்பு கொள்ளவும்

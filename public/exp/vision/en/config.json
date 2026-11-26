@@ -1,0 +1,30 @@
+{
+ "slug": "vision",
+ "lang": "en",
+ "beats": [
+  {
+   "n": 1,
+   "audio": "audio/en/1.mp3",
+   "dur": 5.42,
+   "caption": "A future where every Tier-3 community has the skills to build its own digital tools."
+  },
+  {
+   "n": 2,
+   "audio": "audio/en/2.mp3",
+   "dur": 5.14,
+   "caption": "Local students train in AI and software, and build solutions for their own towns."
+  },
+  {
+   "n": 3,
+   "audio": "audio/en/3.mp3",
+   "dur": 2.83,
+   "caption": "Data and infrastructure stay close to home."
+  },
+  {
+   "n": 4,
+   "audio": "audio/en/4.mp3",
+   "dur": 4.44,
+   "caption": "K2Labs builds that future one training cohort and one tool at a time."
+  }
+ ]
+}

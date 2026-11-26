@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Experience from "../../components/Experience.astro";
 import { marked } from "marked";
 
 const md = (await import("../../content/vision.ta.md?raw")).default;
@@ -11,9 +12,17 @@ const html = marked.parse(md);
   description="அறிவை நெறிமுறை, அணுகக்கூடிய செயலாக மாற்றுவதன் மூலம் சமூகங்கள் முக்கியமான பிரச்சனைகளைத் தீர்க்க உதவுவதே எங்கள் பார்வை."
   locale="ta"
 >
-  <section class="pt-24">
+  <section class="max-w-6xl mx-auto px-6 pt-16">
+    <h1 class="text-3xl md:text-4xl font-semibold leading-tight">எங்கள் பார்வை</h1>
+  </section>
+
+  <section class="mt-8">
+    <Experience slug="vision" locale="ta" />
+  </section>
+
+  <section class="max-w-6xl mx-auto px-6 mt-20 mb-24">
     <div class="content-panel">
-      <h1 class="text-4xl font-semibold mb-6">எங்கள் பார்வை</h1>
+      <h2 class="text-2xl font-semibold mb-6">எழுத்தில்</h2>
       <article class="prose prose-invert lg:prose-lg" set:html={html}></article>
     </div>
   </section>
