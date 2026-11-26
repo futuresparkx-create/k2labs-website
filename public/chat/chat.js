@@ -20,6 +20,7 @@ const KB_EN = [
   { tags: ["where", "tier", "town", "location", "community"], text: "K2Labs works in small towns and Tier-3 regions where technology access is limited, running training centres and building locally grounded tools." },
   { tags: ["track", "course", "business", "software", "enroll", "training"], text: "K2Labs offers Track A, the AI Business Toolkit, and Track B, AI-Native Software Engineering." },
   { tags: ["enroll", "form", "student", "join", "application"], text: "Students enroll through the K2Labs Google Form on the enroll page, which asks for student details and track interest." },
+  { tags: ["lab", "labs", "run", "active", "two"], text: "K2Labs runs two active labs: the AI Systems Lab and the Medical Intelligence Lab." },
   { tags: ["ai systems", "systems lab", "lab", "ai"], text: "The AI Systems Lab builds robust, efficient AI systems under real-world constraints such as limited compute, intermittent connectivity, and minimal data labeling. It prioritizes safety, interpretability, and utility, and tests prototypes with partner communities." },
   { tags: ["medical", "health", "clinic", "medical intelligence"], text: "The Medical Intelligence Lab develops assistive tools for clinical workflows, patient triage, and decision support, with human-centered design, privacy, and safety, aimed at resource-constrained clinics." },
   { tags: ["vision", "future", "own", "technology"], text: "K2Labs' vision is a future where every community in Tier-3 India has the skills to build its own digital tools and owns the technology it relies on, through a grassroots innovation ecosystem." },
@@ -32,6 +33,7 @@ const KB_EN = [
 const KB_TA = [
   { tags: ["பணி", "ஆய்வகம்", "k2labs", "சமூகம்", "அடுக்கு-3", "என்ன"], text: "K2Labs ஒரு ஆராய்ச்சி-முதல் சமூக ஆய்வகம். இது அடுக்கு-3 சமூகங்களுக்கு AI மற்றும் மென்பொருள் திறன்களை வழங்கி, அவர்களுக்காக நடைமுறை டிஜிட்டல் கருவிகளை உருவாக்குகிறது." },
   { tags: ["பாடம்", "பாடங்கள்", "டிராக்", "பதிவு", "மாணவர்", "பயிற்சி", "கோர்ஸ்"], text: "K2Labs இல் Track A — AI Business Toolkit மற்றும் Track B — AI-Native Software Engineering என இரண்டு பாடங்கள் உள்ளன. மாணவர்கள் பதிவு பக்கத்தில் உள்ள Google Form மூலம் சேரலாம்." },
+  { tags: ["ஆய்வகங்கள்", "லேப்", "இரண்டு", "செயல்படும்"], text: "K2Labs இரண்டு செயல்படும் ஆய்வகங்களை நடத்துகிறது: AI Systems Lab மற்றும் Medical Intelligence Lab." },
   { tags: ["ஏஐ", "மெடிக்கல்", "ஆய்வகம்", "மருத்துவ"], text: "AI Systems Lab குறைந்த கணினி வளம், இடைவிடாத இணைப்பு போன்ற நிஜ உலகக் கட்டுப்பாடுகளில் செயல்படும் AI அமைப்புகளை உருவாக்குகிறது. Medical Intelligence Lab மருத்துவ பணிப்பாய்வு, நோயாளி வரிசைப்படுத்தல் மற்றும் முடிவெடுக்கும் ஆதரவுக்கான கருவிகளை உருவாக்குகிறது." },
   { tags: ["பார்வை", "எதிர்காலம்", "தொழில்நுட்பம்"], text: "K2Labs இன் பார்வை: அடுக்கு-3 இந்தியாவில் ஒவ்வொரு சமூகமும் தங்கள் சொந்த டிஜிட்டல் கருவிகளை உருவாக்கும் திறனைப் பெற்று, அவர்கள் சார்ந்திருக்கும் தொழில்நுட்பத்தை சொந்தமாக வைத்திருக்கும் எதிர்காலம்." },
   { tags: ["நெறிமுறை", "தனியுரிமை", "பாதுகாப்பு", "அணுகல்"], text: "K2Labs மனித-மைய வடிவமைப்பு, அணுகல் மற்றும் உள்ளடக்கம், தனியுரிமை மற்றும் ஒப்புதல், வெளிப்படைத்தன்மை, பாதுகாப்பு, மற்றும் பாரபட்ச ச awareness ஆகியவற்றை கடைபிடிக்கிறது." }
