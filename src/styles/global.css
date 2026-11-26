@@ -14,7 +14,7 @@ html {
   }
 
   body {
-    background-image: url('/hero-bg.svg');
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjAwIDkwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQgc2xpY2UiPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeDI9IjEiIHkxPSIwIiB5Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzYzNjZGMSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMxNEI4QTYiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZykiLz4KICA8ZyBvcGFjaXR5PSIwLjA4IiBmaWxsPSIjZmZmZmZmIj4KICAgIDxjaXJjbGUgY3g9IjMwMCIgY3k9IjIwMCIgcj0iMTYwIi8+CiAgICA8Y2lyY2xlIGN4PSIxMjAwIiBjeT0iNzAwIiByPSIyNDAiLz4KICAgIDxjaXJjbGUgY3g9IjkwMCIgY3k9IjEwMCIgcj0iMTIwIi8+CiAgPC9nPgo8L3N2Zz4K');
     background-size: cover;
     background-position: center;
     @apply text-slate-50;
@@ -103,4 +103,24 @@ html {
 .site-nav .nav-link:hover,
 .site-nav .nav-link:focus{
   color: #FFD27D;
+}
+
+/* Tamil support — proportional font, looser line-height */
+html[lang="ta"] {
+  line-height: 1.9;
+}
+html[lang="ta"] body,
+html[lang="ta"] .prose {
+  line-height: 1.95;
+  letter-spacing: 0;
+}
+
+/* Mobile nav — allow horizontal scroll rather than overflow */
+@media (max-width: 768px) {
+  header .nav-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  header .nav-scroll::-webkit-scrollbar { display: none; }
 }

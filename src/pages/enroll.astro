@@ -1,0 +1,88 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { GOOGLE_FORM_URL, GOOGLE_FORM_EMBED_SRC, GOOGLE_FORM_READY } from "../config";
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+const enrollTitle = "Enroll in a Course — K2Labs";
+const enrollDesc = "Join the K2Labs AI training centre in Kadayam, Tenkasi. Track A (AI Business Toolkit) for beginners and Track B (AI-Native Software Engineering) for CS/IT graduates.";
+---
+
+<BaseLayout title={enrollTitle} description={enrollDesc} locale="en">
+  <section class="max-w-4xl mx-auto px-6 pt-16">
+    <h1 class="text-4xl md:text-5xl font-semibold">Enroll in a Course</h1>
+
+    <p class="mt-6 text-lg text-slate-300">
+      K2Labs runs practical AI training in Kadayam, Tenkasi — for students,
+      small business owners, and working professionals. Two tracks:
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-6 mt-10">
+      <!-- Track A -->
+      <div class="border border-slate-800 rounded-lg p-6">
+        <h2 class="text-2xl font-semibold text-amber">Track A — AI Business Toolkit</h2>
+        <p class="mt-3 text-slate-300">
+          2 weeks, 10 sessions (90 min each). No coding, no math — every session
+          ends with something usable the next day: WhatsApp AI, Canva, product
+          descriptions, expense tracking, document templates.
+        </p>
+        <ul class="mt-4 space-y-2 text-slate-300">
+          <li>₹999 — general</li>
+          <li>₹799 — early bird (first 5)</li>
+          <li>₹899 — couples / friends (2 seats)</li>
+          <li>₹1,499 — CS/IT graduate advanced</li>
+        </ul>
+      </div>
+
+      <!-- Track B -->
+      <div class="border border-slate-800 rounded-lg p-6">
+        <h2 class="text-2xl font-semibold text-amber">Track B — AI-Native Software Engineering</h2>
+        <p class="mt-3 text-slate-300">
+          4 weeks, 90-minute sessions. For CS/IT graduates: specification-driven
+          engineering, agentic loops (pi/opencode), local deployment, Panchayat
+          Smart-Services Hub capstone.
+        </p>
+        <ul class="mt-4 space-y-2 text-slate-300">
+          <li>₹3,499 — base</li>
+          <li>₹4,999 — with deployment + certificate</li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="mt-14">
+      <h2 class="text-2xl font-semibold">How to Enroll</h2>
+      <ol class="mt-4 list-decimal list-inside space-y-2 text-slate-300">
+        <li>Fill in the Google Form below (name, contact, track, city).</li>
+        <li>We confirm seat availability within 48 hours.</li>
+        <li>Payment (UPI / cash) and materials are coordinated on the first day.</li>
+        <li>Free Day-1 demo class — join us there to see the centre.</li>
+      </ol>
+    </section>
+  </section>
+
+  <!-- Enrollment form -->
+  <section class="max-w-4xl mx-auto px-6 mb-24">
+    <h2 class="text-2xl font-semibold mb-6">Enrollment Form</h2>
+
+    {GOOGLE_FORM_READY ? (
+      <div class="border border-slate-800 rounded-lg overflow-hidden">
+        <iframe
+          src={GOOGLE_FORM_EMBED_SRC}
+          title="K2Labs Enrollment Form"
+          class="w-full min-h-[820px]"
+          allow="payment"
+        ></iframe>
+      </div>
+    ) : (
+      <div class="border border-dashed border-slate-700 rounded-lg p-8 text-center">
+        <p class="text-xl font-medium text-slate-200">The enrollment form is being set up.</p>
+        <p class="mt-3 text-slate-300">
+          For now, reach us directly on WhatsApp or by email — and we can confirm
+          your seat.
+        </p>
+        <p class="mt-4">
+          <a href={`${base}/contact`} class="text-lg font-medium text-amber underline hover:text-white">Contact us →</a>
+        </p>
+      </div>
+    )}
+  </section>
+</BaseLayout>

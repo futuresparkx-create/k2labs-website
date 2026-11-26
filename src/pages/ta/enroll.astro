@@ -1,0 +1,82 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { GOOGLE_FORM_URL, GOOGLE_FORM_EMBED_SRC, GOOGLE_FORM_READY } from "../../config";
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+const enrollTitle = "ஒரு பாடத்திட்டத்தில் பதிவு செய்யுங்கள் - K2Labs";
+const enrollDesc = "தென்காசி, கடையத்தில் உள்ள K2Labs AI பயிற்சி மையத்தில் சேரவும். தொடக்கநிலையாளர்களுக்கான ட்ராக் A (AI வணிக கருவித்தொகுப்பு) மற்றும் CS/IT பட்டதாரிகளுக்கு ட்ராக் B (AI-நேட்டிவ் மென்பொருள் பொறியியல்).";
+---
+
+<BaseLayout title={enrollTitle} description={enrollDesc} locale="ta">
+  <section class="max-w-4xl mx-auto px-6 pt-16">
+    <h1 class="text-4xl md:text-5xl font-semibold">ஒரு பாடத்திட்டத்தில் பதிவு செய்யுங்கள்</h1>
+
+    <p class="mt-6 text-lg text-slate-300">
+      K2Labs கடையம், தென்காசியில் மாணவர்கள், சிறு வணிக உரிமையாளர்கள் மற்றும் பணிபுரியும் நிபுணர்களுக்காக நடைமுறை AI பயிற்சியை நடத்துகிறது. இரண்டு தடங்கள்:
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-6 mt-10">
+      <!-- Track A -->
+      <div class="border border-slate-800 rounded-lg p-6">
+        <h2 class="text-2xl font-semibold text-amber">Track A — AI Business Toolkit</h2>
+        <p class="mt-3 text-slate-300">
+          2 வாரங்கள், 10 அமர்வுகள் (ஒவ்வொன்றும் 90 நிமிடங்கள்). குறியீட்டு முறை இல்லை, கணிதம் இல்லை - ஒவ்வொரு அமர்வும் அடுத்த நாள் பயன்படுத்தக்கூடிய ஏதாவது ஒன்றில் முடிவடைகிறது: WhatsApp AI, Canva, தயாரிப்பு விளக்கங்கள், செலவு கண்காணிப்பு, ஆவண டெம்ப்ளேட்டுகள்.
+        </p>
+        <ul class="mt-4 space-y-2 text-slate-300">
+          <li>₹999 — பொது</li>
+          <li>₹799 — ஆரம்பகால பறவை (முதல் 5)</li>
+          <li>₹899 — தம்பதிகள் / நண்பர்கள் (2 இருக்கைகள்)</li>
+          <li>₹1,499 — CS/IT பட்டதாரி மேம்பட்டவர்கள்</li>
+        </ul>
+      </div>
+
+      <!-- Track B -->
+      <div class="border border-slate-800 rounded-lg p-6">
+        <h2 class="text-2xl font-semibold text-amber">Track B — AI-Native Software Engineering</h2>
+        <p class="mt-3 text-slate-300">
+          4 வாரங்கள், 90 நிமிட அமர்வுகள். CS/IT பட்டதாரிகளுக்கு: விவரக்குறிப்பு சார்ந்த பொறியியல், ஏஜென்டிக் லூப்கள் (பை/ஓப்பன்கோடு), உள்ளூர் வரிசைப்படுத்தல், பஞ்சாயத்து ஸ்மார்ட்-சர்வீசஸ் ஹப் கேப்ஸ்டோன்.
+        </p>
+        <ul class="mt-4 space-y-2 text-slate-300">
+          <li>₹3,499 - அடிப்படை</li>
+          <li>₹4,999 — வரிசைப்படுத்தல் + சான்றிதழுடன்</li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="mt-14">
+      <h2 class="text-2xl font-semibold">பதிவு செய்வது எப்படி</h2>
+      <ol class="mt-4 list-decimal list-inside space-y-2 text-slate-300">
+        <li>கீழே உள்ள Google படிவத்தை நிரப்பவும் (பெயர், தொடர்பு, டிராக், நகரம்).</li>
+        <li>48 மணி நேரத்திற்குள் இருக்கை கிடைப்பதை உறுதி செய்கிறோம்.</li>
+        <li>கட்டணம் (UPI / ரொக்கம்) மற்றும் பொருட்கள் முதல் நாளில் ஒருங்கிணைக்கப்படுகின்றன.</li>
+        <li>இலவச நாள்-1 டெமோ வகுப்பு — மையத்தைப் பார்க்க எங்களுடன் சேருங்கள்.</li>
+      </ol>
+    </section>
+  </section>
+
+  <!-- Enrollment form -->
+  <section class="max-w-4xl mx-auto px-6 mb-24">
+    <h2 class="text-2xl font-semibold mb-6">பதிவு படிவம்</h2>
+
+    {GOOGLE_FORM_READY ? (
+      <div class="border border-slate-800 rounded-lg overflow-hidden">
+        <iframe
+          src={GOOGLE_FORM_EMBED_SRC}
+          title="K2Labs Enrollment Form"
+          class="w-full min-h-[820px]"
+          allow="payment"
+        ></iframe>
+      </div>
+    ) : (
+      <div class="border border-dashed border-slate-700 rounded-lg p-8 text-center">
+        <p class="text-xl font-medium text-slate-200">பதிவு படிவம் அமைக்கப்பட்டு வருகிறது.</p>
+        <p class="mt-3 text-slate-300">
+          இப்போதைக்கு, எங்களை நேரடியாக வாட்ஸ்அப் அல்லது மின்னஞ்சல் மூலம் தொடர்பு கொள்ளவும் — உங்கள் இருக்கையை நாங்கள் உறுதிப்படுத்திக் கொள்ளலாம்.
+        </p>
+        <p class="mt-4">
+          <a href={`${base}/ta/contact`} class="text-lg font-medium text-amber underline hover:text-white">எங்களை தொடர்பு கொள்ளவும் →</a>
+        </p>
+      </div>
+    )}
+  </section>
+</BaseLayout>

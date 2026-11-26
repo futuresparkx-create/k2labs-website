@@ -9,9 +9,10 @@ Prerequisites
 
 Build the image
 ```bash
-# from repo root (where Dockerfile is located, now in deploy/)
-cd deploy
-docker build -t k2labs:latest .
+# Build from the REPO ROOT, pointing at the Dockerfile in deploy/.
+# The Dockerfile does `COPY . .`, so the build context must be the repo root
+# (it needs package.json + src/). Building from inside deploy/ fails.
+docker build -f deploy/Dockerfile -t k2labs:latest .
 
 # run container, map host port 3000 -> container 3000
 docker run -d --name k2labs -p 3000:3000 --restart unless-stopped k2labs:latest
@@ -23,9 +24,8 @@ docker logs -f k2labs
 # quick health check
 curl -I http://localhost:3000/
 
-# rebuild image and redeploy container
-cd deploy
-docker build -t k2labs:latest .
+# rebuild image and redeploy container (from repo root)
+docker build -f deploy/Dockerfile -t k2labs:latest .
 docker stop k2labs || true
 docker rm k2labs || true
 docker run -d --name k2labs -p 3000:3000 --restart unless-stopped k2labs:latest

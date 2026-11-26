@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { marked } from "marked";
+
+const md = (await import("../../content/mission.ta.md?raw")).default;
+const html = marked.parse(md);
+---
+
+<BaseLayout
+  title="பணி - K2Labs"
+  description="அறிவை நிஜ உலக தீர்வுகளாக மாற்றும் சமூகம் சார்ந்த ஆராய்ச்சி ஆய்வகங்களை உருவாக்குவதே எங்கள் நோக்கம்."
+  locale="ta"
+>
+  <section class="pt-24">
+    <div class="content-panel">
+      <h1 class="text-4xl font-semibold mb-6">எங்கள் பணி</h1>
+      <article class="prose prose-invert lg:prose-lg" set:html={html}></article>
+    </div>
+  </section>
+</BaseLayout>

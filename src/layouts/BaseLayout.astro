@@ -1,37 +1,112 @@
 ---
 import "../styles/global.css";
-const { title = "K2Labs", description = "Knowledge transformed into action to improve human life." } = Astro.props;
+
+interface Props {
+  title?: string;
+  description?: string;
+  locale?: "en" | "ta";
+}
+
+const {
+  title = "K2Labs",
+  description = "Knowledge transformed into action to improve human life.",
+  locale = "en",
+} = Astro.props;
+
+const isTa = locale === "ta";
+
+// --- Base path (GitHub Pages project site) ────────────────────────────────
+// Astro serves this site under /k2labs-website/ — every internal path must
+// carry that prefix, including assets.
+const base = import.meta.env.BASE_URL; // "/k2labs-website"
+const baseTrim = base.replace(/\/$/, ""); // "/k2labs-website"
+const stripBase = (p) => (p.startsWith(baseTrim) ? p.slice(baseTrim.length) : p);
+
+// English lives at /, Tamil lives at /ta/
+const href = (path) => (isTa ? (path === "/" ? `${baseTrim}/ta` : `${baseTrim}/ta${path}`) : (path === "/" ? baseTrim + "/" : `${baseTrim}${path}`));
+
+const currentBase = stripBase(Astro.url.pathname) || "/";
+const currentPage = currentBase.replace(/^\/ta(\/|$)/, "/") || "/";
+const currentPageStripped = currentPage.replace(/\/$/, "") || "";
+const otherLocaleHref = isTa ? `${baseTrim}${currentPageStripped || "/"}` : `${baseTrim}/ta${currentPageStripped || ""}`;
+
+// --- Localized strings (language-switcher + nav + footer) ───────────────
+const NAV = [
+  { path: "/vision", en: "Vision", ta: "பார்வை" },
+  { path: "/mission", en: "Mission", ta: "பணி" },
+  { path: "/labs", en: "Labs", ta: "ஆய்வகங்கள்" },
+  { path: "/ethics", en: "Ethics", ta: "நெறிமுறைகள்" },
+  { path: "/contact", en: "Contact", ta: "தொடர்பு" },
+];
+const ENROLL_LABEL = isTa ? "பதிவு" : "Enroll";
+const TOGGLE_LABEL = isTa ? "ஆங்கிலம்" : "தமிழ்";
+const FOOTER_LINES = isTa
+  ? ["© {year} K2Labs. பொறுப்பான செயலின் மூலம் அறிவு பெருகும்.", "சமூகங்களுக்காக உருவாக்கப்பட்டது. பொறுப்புடன் நிறுவப்பட்டது."]
+  : ["© {year} K2Labs. Knowledge multiplied through responsible action.", "Built for communities. Deployed responsibly."];
+
+const year = new Date().getFullYear();
+const footer = FOOTER_LINES.map((l) => l.replace("{year}", String(year)));
+
+// --- SEO: canonical + hreflang (only when `site` is configured) ─────────
+const site = Astro.site;
+const pagePath = currentPageStripped || "";
+const toAbsolute = (path) => site ? new URL(`${baseTrim}${path}`, site).toString() : undefined;
+const canonical = toAbsolute(isTa ? (pagePath === "" ? "/ta/" : `/ta${pagePath}`) : (pagePath === "" ? "/" : pagePath));
+const altLinks = site
+  ? (["en", "ta"] as const).map((l) => ({
+      hreflang: l,
+      href: toAbsolute(l === "ta" ? (pagePath === "" ? "/ta/" : `/ta${pagePath}`) : (pagePath === "" ? "/" : pagePath)),
+    }))
+  : [];
+const xDefault = site ? toAbsolute(pagePath === "" ? "/" : pagePath) : undefined;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={locale}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>{title}</title>
     <meta name="description" content={description} />
-
     <meta name="theme-color" content="#0f172a" />
 
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {canonical && <link rel="canonical" href={canonical} />}
+    {altLinks.map((a) => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}
+    {xDefault && <link rel="alternate" hreflang="x-default" href={xDefault} />}
+
+    <link rel="icon" type="image/svg+xml" href={`${baseTrim}/favicon.svg`} />
   </head>
 
   <body class="min-h-screen">
     <!-- Header -->
     <header class="border-b border-slate-800">
-      <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="/" class="flex items-center gap-3">
-          <img src="/logo.svg" alt="K2Labs" class="h-10" />
+      <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center gap-4">
+        <a href={href("/")} class="flex items-center gap-3 shrink-0">
+          <img src={`${baseTrim}/logo.svg`} alt="K2Labs" class="h-10" />
           <span class="text-amber text-xl md:text-2xl font-semibold">K2Labs</span>
         </a>
 
-        <nav class="space-x-6 text-lg md:text-xl text-slate-100">
-          <a href="/vision" class="hover:text-amber font-medium">Vision</a>
-          <a href="/mission" class="hover:text-amber font-medium">Mission</a>
-          <a href="/labs" class="hover:text-amber font-medium">Labs</a>
-          <a href="/ethics" class="hover:text-amber font-medium">Ethics</a>
-          <a href="/contact" class="hover:text-amber font-medium">Contact</a>
+        <nav class="nav-scroll flex items-center gap-4 md:gap-5 text-base md:text-lg text-slate-100">
+          {NAV.map((item) => (
+            <a href={href(item.path)} class="hover:text-amber font-medium whitespace-nowrap">
+              {isTa ? item.ta : item.en}
+            </a>
+          ))}
+          <a
+            href={href("/enroll")}
+            class="whitespace-nowrap rounded-md bg-amber px-3.5 py-2 text-slate-900 font-semibold hover:bg-white"
+          >
+            {ENROLL_LABEL}
+          </a>
+          <a
+            href={otherLocaleHref}
+            lang={isTa ? "en" : "ta"}
+            class="whitespace-nowrap rounded-full border border-slate-700 px-3 py-2 text-sm text-slate-300 hover:text-amber hover:border-amber"
+            title={isTa ? "Switch to English" : "தமிழுக்கு மாறு"}
+          >
+            {TOGGLE_LABEL}
+          </a>
         </nav>
       </div>
     </header>
@@ -44,12 +119,9 @@ const { title = "K2Labs", description = "Knowledge transformed into action to im
     <!-- Footer -->
     <footer class="border-t border-slate-800 mt-24">
       <div class="max-w-6xl mx-auto px-6 py-8 text-sm text-slate-300">
-        <p>
-          © {new Date().getFullYear()} K2Labs. Knowledge multiplied through responsible action.
-        </p>
-        <p class="mt-2">
-          Built for communities. Deployed responsibly.
-        </p>
+        {footer.map((line) => (
+          <p class="mt-2 first:mt-0">{line}</p>
+        ))}
       </div>
     </footer>
   </body>

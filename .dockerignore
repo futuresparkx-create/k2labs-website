@@ -1,0 +1,13 @@
+# Docker build context exclusions.
+# CI builds with `docker build -f deploy/Dockerfile .` from the repo root, and
+# Docker only honours a .dockerignore at the CONTEXT ROOT — so this file, not
+# deploy/.dockerignore, is what takes effect. Without it, node_modules and the
+# previous dist/ are copied into every build.
+node_modules
+dist
+.git
+.vscode
+.DS_Store
+npm-debug.log
+.env
+mock/

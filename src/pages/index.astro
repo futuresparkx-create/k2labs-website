@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <BaseLayout
@@ -94,7 +95,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       </p>
 
       <a
-        href="/contact"
+        href={`${base}/contact`}
         class="inline-block mt-6 px-6 py-3 rounded-md bg-slate-100 text-slate-900 font-medium hover:bg-white"
       >
         Get in touch
