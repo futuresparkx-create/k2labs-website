@@ -71,7 +71,11 @@ const xDefault = site ? toAbsolute(pagePath === "" ? "/" : `${pagePath}/`) : und
 
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#0f172a" />
+    <meta name="theme-color" content="#07101f" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
 
     {canonical && <link rel="canonical" href={canonical} />}
     {altLinks.map((a) => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}
@@ -82,29 +86,34 @@ const xDefault = site ? toAbsolute(pagePath === "" ? "/" : `${pagePath}/`) : und
 
   <body class="min-h-screen">
     <!-- Header -->
-    <header class="border-b border-slate-800">
+    <header class="site-header">
       <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center gap-4">
         <a href={href("/")} class="flex items-center gap-3 shrink-0">
-          <img src={`${baseTrim}/logo.svg`} alt="K2Labs" class="h-10" />
-          <span class="text-amber text-xl md:text-2xl font-semibold">K2Labs</span>
+          <img src={`${baseTrim}/brand-mark.svg`} alt="K2Labs mark" class="brand-mark h-11 w-11" />
+          <span class="flex flex-col leading-tight">
+            <span class="brand-wordmark text-xl md:text-2xl">
+              <span class="text-brand-off">K</span><span class="text-brand-orange">2</span><span class="text-brand-grey">Labs</span>
+            </span>
+            <span class="brand-tagline mt-0.5 text-brand-grey">Innovations</span>
+          </span>
         </a>
 
-        <nav class="nav-scroll flex items-center gap-4 md:gap-5 text-base md:text-lg text-slate-100">
+        <nav class="site-nav nav-scroll flex items-center gap-4 md:gap-5 text-base md:text-lg">
           {NAV.map((item) => (
-            <a href={href(item.path)} class="hover:text-amber font-medium whitespace-nowrap">
+            <a href={href(item.path)} class="nav-link whitespace-nowrap">
               {isTa ? item.ta : item.en}
             </a>
           ))}
           <a
             href={href("/enroll")}
-            class="whitespace-nowrap rounded-md bg-amber px-3.5 py-2 text-slate-900 font-semibold hover:bg-white"
+            class="whitespace-nowrap rounded-md bg-brand-orange px-3.5 py-2 text-brand-dark font-extrabold hover:bg-brand-off"
           >
             {ENROLL_LABEL}
           </a>
           <a
             href={otherLocaleHref}
             lang={isTa ? "en" : "ta"}
-            class="whitespace-nowrap rounded-full border border-slate-700 px-3 py-2 text-sm text-slate-300 hover:text-amber hover:border-amber"
+            class="whitespace-nowrap rounded-full border border-brand-sky/60 px-3 py-2 text-sm text-brand-grey hover:text-brand-orange hover:border-brand-orange"
             title={isTa ? "Switch to English" : "தமிழுக்கு மாறு"}
           >
             {TOGGLE_LABEL}
@@ -119,11 +128,12 @@ const xDefault = site ? toAbsolute(pagePath === "" ? "/" : `${pagePath}/`) : und
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-slate-800 mt-24">
-      <div class="max-w-6xl mx-auto px-6 py-8 text-sm text-slate-300">
+    <footer class="border-t-4 border-brand-orange mt-24 bg-brand-dark/80">
+      <div class="max-w-6xl mx-auto px-6 py-8 text-sm text-brand-grey">
         {footer.map((line) => (
           <p class="mt-2 first:mt-0">{line}</p>
         ))}
+        <p class="brand-tagline mt-5 text-brand-orange">K2Labs · Innovations</p>
       </div>
     </footer>
   </body>

@@ -5,15 +5,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#6366F1",
-        teal: "#14B8A6",
-        amber: "#F59E0B",
-        rose: "#FB7185"
-      },
-      backgroundImage: {
-        'hero': "url('/hero-bg.svg')"
+        brand: {
+          navy: "#1D2E6E",
+          orange: "#F26522",
+          sky: "#5BB8D4",
+          dark: "#07101f",
+          off: "#F5F3EE",
+          grey: "#9ca3af"
+        }
       }
-    },
+    }
   },
   plugins: [typography],
 };

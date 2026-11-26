@@ -1,4 +1,4 @@
-/* K2Labs narrated experience layer — paper-stage + player */
+/* K2Labs narrated experience layer — brand stage + player */
 
 .exp-page {
   max-width: 1120px;
@@ -9,10 +9,11 @@
 .exp { display: block; }
 
 .stage-wrap {
-  background: #0b0f14;
+  background: #07101f;
   padding: 10px;
   border-radius: 20px;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+  border: 1px solid #1D2E6E;
+  box-shadow: 0 24px 60px rgba(7, 16, 31, 0.55);
 }
 
 .stage {
@@ -20,11 +21,11 @@
   width: 100%;
   height: auto;
   border-radius: 14px;
-  background: #f7f1e7;
+  background: #F5F3EE;
   overflow: hidden;
 }
 
-.stage text { font-family: "Inter", system-ui, sans-serif; }
+.stage text { font-family: "Nunito", system-ui, sans-serif; }
 
 .stage .part {
   opacity: 0;
@@ -70,64 +71,65 @@
   flex-wrap: wrap;
   margin-top: 14px;
   padding: 10px 14px;
-  background: #0f172a;
-  border: 1px solid #334155;
+  background: #07101f;
+  border: 1px solid #1D2E6E;
   border-radius: 12px;
-  color: #e7e0d4;
-  font: 14px/1 "Inter", system-ui, sans-serif;
+  color: #F5F3EE;
+  font: 14px/1 "Nunito", system-ui, sans-serif;
 }
 .player button {
-  border: 1px solid #475569;
-  background: #1e293b;
-  color: #f8f3e6;
+  border: 1px solid #1D2E6E;
+  background: #1D2E6E;
+  color: #F5F3EE;
   border-radius: 8px;
   padding: 8px 14px;
-  font-weight: 600;
+  font-weight: 800;
   cursor: pointer;
-  transition: background 0.15s, border-color 0.15s;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
 }
-.player button:hover { background: #27364a; border-color: #f59e0b; }
-.player button:focus-visible { outline: 2px solid #f59e0b; outline-offset: 2px; }
+.player button:hover { background: #26386a; border-color: #F26522; }
+.player button:focus-visible { outline: 2px solid #F26522; outline-offset: 2px; }
 .exp-play[aria-pressed="true"] {
-  background: #f59e0b;
-  color: #0f172a;
-  border-color: #f59e0b;
+  background: #F26522;
+  color: #07101f;
+  border-color: #F26522;
 }
 .exp-scrub {
   flex: 1;
   min-width: 100px;
-  accent-color: #f59e0b;
+  accent-color: #F26522;
 }
-.exp-time { font-variant-numeric: tabular-nums; color: #cbd5e1; }
+.exp-time { font-variant-numeric: tabular-nums; color: #9ca3af; }
 .exp-captions[aria-pressed="false"] { opacity: 0.55; }
 
-/* caption strip — the "paper narration" */
+/* caption strip — brand paper narration */
 .caption-bar {
   margin-top: 14px;
   padding: 14px 18px;
-  background: #f7f1e7;
-  border: 1px solid #d8ccb2;
-  border-left: 5px solid #f59e0b;
+  background: #F5F3EE;
+  border: 1px solid #D9DEE8;
+  border-left: 5px solid #F26522;
   border-radius: 10px;
-  color: #1c1917;
-  font: 17px/1.55 "Iowan Old Style", "Georgia", "Times New Roman", serif;
+  color: #07101f;
+  font: 17px/1.55 "Nunito", system-ui, sans-serif;
   font-style: italic;
+  font-weight: 600;
 }
 .caption-bar.captions-off { visibility: hidden; }
 
 /* interactive stops */
 .checks { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
 .check {
-  border: 1px solid #d8ccb2;
-  background: #fff9ee;
-  color: #1c1917;
+  border: 1px solid #1D2E6E;
+  background: #F5F3EE;
+  color: #07101f;
   border-radius: 999px;
   padding: 9px 15px;
-  font: 14px/1.2 "Inter", system-ui, sans-serif;
-  font-weight: 600;
+  font: 14px/1.2 "Nunito", system-ui, sans-serif;
+  font-weight: 800;
   cursor: pointer;
 }
-.check:hover, .check:focus-visible { border-color: #f59e0b; outline: none; }
-.check[aria-expanded="true"] { background: #fde68a; border-color: #f59e0b; }
-.answer { display: none; margin-top: 10px; color: #1c1917; font: 15px/1.5 "Inter", system-ui, sans-serif; }
+.check:hover, .check:focus-visible { border-color: #F26522; outline: none; }
+.check[aria-expanded="true"] { background: #F26522; border-color: #F26522; color: #07101f; }
+.answer { display: none; margin-top: 10px; color: #F5F3EE; font: 15px/1.5 "Nunito", system-ui, sans-serif; }
 .answer.revealed { display: block; }

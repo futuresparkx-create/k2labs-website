@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* base polish */
+/* K2Labs brand base — navy/orange/sky on dark, Nunito type */
 html {
   scroll-behavior: smooth;
   font-size: 18px;
@@ -14,45 +14,54 @@ html {
   }
 
   body {
-    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjAwIDkwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQgc2xpY2UiPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeDI9IjEiIHkxPSIwIiB5Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzYzNjZGMSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMxNEI4QTYiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZykiLz4KICA8ZyBvcGFjaXR5PSIwLjA4IiBmaWxsPSIjZmZmZmZmIj4KICAgIDxjaXJjbGUgY3g9IjMwMCIgY3k9IjIwMCIgcj0iMTYwIi8+CiAgICA8Y2lyY2xlIGN4PSIxMjAwIiBjeT0iNzAwIiByPSIyNDAiLz4KICAgIDxjaXJjbGUgY3g9IjkwMCIgY3k9IjEwMCIgcj0iMTIwIi8+CiAgPC9nPgo8L3N2Zz4K');
-    background-size: cover;
-    background-position: center;
-    @apply text-slate-50;
+    background:
+      radial-gradient(circle at 84% 10%, rgba(242, 101, 34, 0.20) 0, transparent 42%),
+      radial-gradient(circle at 12% 82%, rgba(91, 184, 212, 0.16) 0, transparent 48%),
+      linear-gradient(180deg, #07101f 0%, #0b1a33 52%, #1D2E6E 100%);
+    background-attachment: fixed;
+    color: #F5F3EE;
+    font-family: "Nunito", system-ui, sans-serif;
+    @apply text-brand-off;
   }
 
   .content-panel {
-    @apply bg-black/60 backdrop-blur-md p-8 rounded-xl max-w-4xl mx-auto my-12;
+    @apply bg-brand-navy/50 backdrop-blur-md p-8 rounded-xl max-w-4xl mx-auto my-12 border border-brand-orange/30;
   }
 
   h1, h2, h3, h4 {
-    @apply text-white;
+    @apply text-brand-off;
+    font-weight: 800;
+  }
+
+  h2 {
+    border-bottom: 2px solid #F26522;
+    padding-bottom: 0.55rem;
   }
 
   a {
-    @apply text-amber hover:text-amber;
+    @apply text-brand-orange hover:text-brand-orange;
   }
 
-  /* Avoid applying 'prose' itself — only set sizing & color */
   .prose {
     @apply text-lg leading-relaxed;
   }
 
   .prose p,
   .prose li {
-    @apply text-slate-100;
+    @apply text-brand-off/85;
   }
 }
 
-/* Header animated gradient + logo + nav underline */
-.site-header{
+/* Header brand band */
+.site-header {
   position: relative;
   z-index: 40;
-  background: linear-gradient(90deg, rgba(99,102,241,0.06) 0%, rgba(20,184,166,0.05) 50%, rgba(99,102,241,0.04) 100%);
-  backdrop-filter: blur(6px);
+  background: linear-gradient(90deg, rgba(29, 46, 110, 0.92) 0%, rgba(7, 16, 31, 0.96) 45%, rgba(29, 46, 110, 0.92) 100%);
+  backdrop-filter: blur(8px);
+  border-bottom: 4px solid #F26522;
   transition: box-shadow .25s ease;
   background-size: 200% 200%;
-  animation: headerGradient 10s ease infinite;
-  border-bottom-width: 1px;
+  animation: headerGradient 12s ease infinite;
 }
 
 @keyframes headerGradient{
@@ -62,26 +71,43 @@ html {
 }
 
 .site-header.scrolled {
-  box-shadow: 0 6px 24px rgba(2,6,23,0.25);
+  box-shadow: 0 6px 24px rgba(7, 16, 31, 0.55);
 }
 
-.logo {
+/* Brand wordmark + tagline */
+.brand-wordmark {
+  font-family: "Nunito", system-ui, sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+.brand-tagline {
+  font-family: "Nunito", system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  font-size: 9px;
+}
+
+/* Mark */
+.brand-mark {
   transform-origin: center;
   transition: transform 450ms cubic-bezier(.2,.9,.2,1);
-  animation: logoPulse 6s ease-in-out infinite;
+  animation: markPulse 7s ease-in-out infinite;
 }
-.logo:hover {
+.brand-mark:hover {
   transform: scale(1.06) rotate(-1deg);
 }
-@keyframes logoPulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.02); }
-  100% { transform: scale(1); }
+@keyframes markPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
 }
 
+/* Nav */
 .site-nav .nav-link{
   position: relative;
-  color: #F59E0B;
+  color: #F5F3EE;
+  font-weight: 700;
   transition: color .18s ease;
 }
 .site-nav .nav-link::after{
@@ -91,7 +117,7 @@ html {
   bottom: -6px;
   height: 2px;
   width: 100%;
-  background: linear-gradient(90deg,#F59E0B,#FB7185);
+  background: linear-gradient(90deg,#F26522,#5BB8D4);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform .25s ease;
@@ -102,10 +128,10 @@ html {
 }
 .site-nav .nav-link:hover,
 .site-nav .nav-link:focus{
-  color: #FFD27D;
+  color: #F26522;
 }
 
-/* Tamil support — proportional font, looser line-height */
+/* Tamil support */
 html[lang="ta"] {
   line-height: 1.9;
 }
@@ -115,7 +141,7 @@ html[lang="ta"] .prose {
   letter-spacing: 0;
 }
 
-/* Mobile nav — allow horizontal scroll rather than overflow */
+/* Mobile nav */
 @media (max-width: 768px) {
   header .nav-scroll {
     overflow-x: auto;
