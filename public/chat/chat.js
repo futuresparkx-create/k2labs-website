@@ -86,6 +86,9 @@ async function getModel() {
 }
 
 async function answerEnglish(query) {
+  // Core site facts are answered directly; the local model handles open-ended questions.
+  const direct = directAnswer(query, KB_EN);
+  if (direct) return direct;
   try {
     const model = await getModel();
     const context = retrieve(query, KB_EN);
