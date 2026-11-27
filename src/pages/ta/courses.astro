@@ -1,0 +1,97 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+const title = "பாடங்கள் — K2Labs";
+const description = "K2Labs பாடத் தொகுப்பு: ட்ராக் A, ட்ராக் B, AI Systems Lab, Medical Intelligence Lab, நெறிமுறைகள் மற்றும் சமூக புதுமை தொகுதிகள்.";
+---
+
+<BaseLayout title={title} description={description} locale="ta">
+  <main class="max-w-5xl mx-auto px-6 py-12">
+    <p class="brand-tagline text-brand-orange">பாடத் தொகுப்பு</p>
+    <h1 class="mt-3 text-4xl md:text-5xl font-semibold">K2Labs இன் வேலையிலிருந்து பாடங்கள்</h1>
+    <p class="mt-4 max-w-3xl text-lg text-brand-off/80">
+      இரண்டு முழு பயிற்சி டிராக்கள் மற்றும் நான்கு குறுகிய தலைப்பு தொகுதிகள்.
+      ஒவ்வொரு தொகுதியும் ஒரு K2Labs ஆராய்ச்சி கருப்பொருளை நடைமுறை கற்றல்
+      வரிசையாக மாற்றுகிறது.
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-6 mt-8">
+      <article class="border border-brand-navy/60 rounded-lg p-6">
+        <h2 class="text-2xl font-semibold text-brand-orange">ட்ராக் A — AI வணிகக் கருவித்தொகுப்பு</h2>
+        <p class="mt-3 text-brand-off/80">
+          அன்றாட வணிகப் பணிகளுக்கான ஆரம்பநிலைக்கு ஏற்ற AI. இரண்டு வாரங்கள்,
+          பத்து அமர்வுகள், குறியீட்டு முறை அல்லது கணிதம் இல்லை.
+        </p>
+        <p class="mt-4 text-sm text-brand-grey">முழு பாடம்: பதிவு பக்கத்தில் அமர்வு வரைபடம்.</p>
+      </article>
+
+      <article class="border border-brand-navy/60 rounded-lg p-6">
+        <h2 class="text-2xl font-semibold text-brand-orange">ட்ராக் B — AI-நேட்டிவ் மென்பொருள் பொறியியல்</h2>
+        <p class="mt-3 text-brand-off/80">
+          CS/IT பட்டதாரிகளுக்கான விவரக்குறிப்பு சார்ந்த, ஏஜென்டிக் மென்பொருள்
+          வழங்கல். நான்கு வாரங்கள், 90 நிமிட அமர்வுகள்.
+        </p>
+        <p class="mt-4 text-sm text-brand-grey">முழு பாடம்: பதிவு பக்கத்தில் வார வரைபடம் மற்றும் கேப்ஸ்டோன்.</p>
+      </article>
+    </div>
+
+    <section class="mt-12">
+      <h2 class="text-2xl font-semibold">தலைப்பு தொகுதிகள்</h2>
+      <div class="grid md:grid-cols-2 gap-6 mt-6">
+        <article class="border border-brand-navy/60 rounded-lg p-6">
+          <h3 class="text-xl font-semibold text-brand-orange">AI Systems Lab — கட்டுப்பாடுகளில் செயல்படும் AI</h3>
+          <p class="mt-2 text-sm text-brand-grey">யாருக்கு: மாணவர்கள், தன்னார்வலர்கள், டொமைன் வல்லுநர்கள். நான்கு அமர்வுகள்.</p>
+          <ul class="mt-4 space-y-2 text-sm text-brand-off/85">
+            <li>கட்டுப்பாடுகள்: குறைந்த கணினி வளம், இடைவிடாத இணைப்பு, குறைந்த தரவு லேபிளிங்.</li>
+            <li>பாதுகாப்பு மற்றும் விளக்கம்: பாதுகாப்பாக விளக்கக்கூடிய, தோல்வியில் பாதுகாப்பான அமைப்புகள்.</li>
+            <li>கூட்டாளர் சமூகங்களுடன் முன்மாதிரி மற்றும் களச் சோதனை.</li>
+            <li>முன்மாதிரியிலிருந்து பயன்படுத்தக்கூடிய, சரிபார்க்கப்பட்ட கருவி.</li>
+          </ul>
+        </article>
+
+        <article class="border border-brand-navy/60 rounded-lg p-6">
+          <h3 class="text-xl font-semibold text-brand-orange">Medical Intelligence Lab — உதவி மருத்துவ AI</h3>
+          <p class="mt-2 text-sm text-brand-grey">யாருக்கு: CS/IT பட்டதாரிகள், மருத்துவர்கள், டொமைன் நிபுணர்கள். நான்கு அமர்வுகள்.</p>
+          <ul class="mt-4 space-y-2 text-sm text-brand-off/85">
+            <li>மருத்துவ பணிப்பாய்வு, நோயாளி வரிசைப்படுத்தல் மற்றும் முடிவு ஆதரவு.</li>
+            <li>வளம் குறைந்த கிளினிக்குகளில் தனியுரிமை, ஒப்புதல் மற்றும் பாதுகாப்பு.</li>
+            <li>சரிபார்ப்பு: பயன்பாட்டுக்கு முன் சோதிக்கப்பட்ட, பயன்படுத்தக்கூடிய முன்மாதிரிகள்.</li>
+            <li>மருத்துவர்கள் மற்றும் நோயாளிகளுடன் மனித-மைய மதிப்பீடு.</li>
+          </ul>
+        </article>
+
+        <article class="border border-brand-navy/60 rounded-lg p-6">
+          <h3 class="text-xl font-semibold text-brand-orange">பொறுப்பான AI மற்றும் நெறிமுறைகள்</h3>
+          <p class="mt-2 text-sm text-brand-grey">யாருக்கு: அனைத்து டிராக்கள். மூன்று அமர்வுகள்.</p>
+          <ul class="mt-4 space-y-2 text-sm text-brand-off/85">
+            <li>மனித-மைய வடிவமைப்பு, அணுகல் மற்றும் உள்ளடக்கம்.</li>
+            <li>தனியுரிமை மற்றும் ஒப்புதல், வெளிப்படைத்தன்மை, பாரபட்ச விழிப்புணர்வு.</li>
+            <li>பாதுகாப்பு முதலில்: பயன்பாட்டுக்கு முன் மதிப்பீடு.</li>
+          </ul>
+        </article>
+
+        <article class="border border-brand-navy/60 rounded-lg p-6">
+          <h3 class="text-xl font-semibold text-brand-orange">சமூக AI புதுமை</h3>
+          <p class="mt-2 text-sm text-brand-grey">யாருக்கு: மாணவர்கள், உள்ளூர் பில்டர்கள், சமூக அமைப்பாளர்கள். மூன்று அமர்வுகள்.</p>
+          <ul class="mt-4 space-y-2 text-sm text-brand-off/85">
+            <li>பார்வை மற்றும் பணி: அடுக்கு-3 சமூகங்களுக்கு சொந்தமான தொழில்நுட்பம்.</li>
+            <li>உள்ளூர் பிரச்சனை கண்டுபிடிப்பு: கருவிக்கு முன் பிரச்சனையை வரையறுக்கவும்.</li>
+            <li>உருவாக்குதல், வரிசைப்படுத்துதல், கையளித்தல்: சமூகத்திற்கான கருவிகள்.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-2xl font-semibold">பாடத்தை எப்படி எடுப்பது</h2>
+      <p class="mt-3 text-brand-off/80">
+        ஒரு ட்ராக் அல்லது தொகுதியைத் தேர்ந்தெடுத்து, Google படிவத்தின் மூலம்
+        பதிவு செய்யவும். பதிவின் போது பாட விவரங்கள் உறுதி செய்யப்படுகின்றன.
+      </p>
+      <p class="mt-4">
+        <a href={`${base}/ta/enroll/`} class="text-lg font-medium text-brand-orange underline hover:text-brand-off">பதிவு →</a>
+      </p>
+    </section>
+  </main>
+</BaseLayout>

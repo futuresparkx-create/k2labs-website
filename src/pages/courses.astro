@@ -1,0 +1,96 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+const title = "Courses — K2Labs";
+const description = "K2Labs course catalogue: Track A, Track B, and topic modules from AI Systems Lab, Medical Intelligence Lab, ethics, and community innovation.";
+---
+
+<BaseLayout title={title} description={description} locale="en">
+  <main class="max-w-5xl mx-auto px-6 py-12">
+    <p class="brand-tagline text-brand-orange">COURSE CATALOGUE</p>
+    <h1 class="mt-3 text-4xl md:text-5xl font-semibold">Courses built from K2Labs' work</h1>
+    <p class="mt-4 max-w-3xl text-lg text-brand-off/80">
+      Two full training tracks and four short topic modules. Each module turns a
+      K2Labs research theme into a practical learning sequence.
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-6 mt-8">
+      <article class="border border-brand-navy/60 rounded-lg p-6">
+        <h2 class="text-2xl font-semibold text-brand-orange">Track A — AI Business Toolkit</h2>
+        <p class="mt-3 text-brand-off/80">
+          Beginner-friendly AI for everyday business work. Two weeks, ten sessions,
+          no coding or math.
+        </p>
+        <p class="mt-4 text-sm text-brand-grey">Full course: session-by-session plan on the enrollment page.</p>
+      </article>
+
+      <article class="border border-brand-navy/60 rounded-lg p-6">
+        <h2 class="text-2xl font-semibold text-brand-orange">Track B — AI-Native Software Engineering</h2>
+        <p class="mt-3 text-brand-off/80">
+          Specification-driven, agentic software delivery for CS/IT graduates.
+          Four weeks of 90-minute sessions.
+        </p>
+        <p class="mt-4 text-sm text-brand-grey">Full course: week map and capstone on the enrollment page.</p>
+      </article>
+    </div>
+
+    <section class="mt-12">
+      <h2 class="text-2xl font-semibold">Topic modules</h2>
+      <div class="grid md:grid-cols-2 gap-6 mt-6">
+        <article class="border border-brand-navy/60 rounded-lg p-6">
+          <h3 class="text-xl font-semibold text-brand-orange">AI Systems Lab — Applied AI under constraints</h3>
+          <p class="mt-2 text-sm text-brand-grey">Audience: students, volunteers, and domain experts. Four sessions.</p>
+          <ul class="mt-4 space-y-2 text-sm text-brand-off/85">
+            <li>Constraints: limited compute, intermittent connectivity, minimal data labeling.</li>
+            <li>Safety and interpretability: build systems that explain and fail safely.</li>
+            <li>Prototyping and field testing with partner communities.</li>
+            <li>From prototype to a usable, validated tool.</li>
+          </ul>
+        </article>
+
+        <article class="border border-brand-navy/60 rounded-lg p-6">
+          <h3 class="text-xl font-semibold text-brand-orange">Medical Intelligence Lab — Assistive clinical AI</h3>
+          <p class="mt-2 text-sm text-brand-grey">Audience: CS/IT graduates, clinicians, and domain experts. Four sessions.</p>
+          <ul class="mt-4 space-y-2 text-sm text-brand-off/85">
+            <li>Clinical workflow, patient triage, and decision support.</li>
+            <li>Privacy, consent, and safety in resource-constrained clinics.</li>
+            <li>Validation: usable, tested prototypes before deployment.</li>
+            <li>Human-centered review with clinicians and patients.</li>
+          </ul>
+        </article>
+
+        <article class="border border-brand-navy/60 rounded-lg p-6">
+          <h3 class="text-xl font-semibold text-brand-orange">Responsible AI and Ethics</h3>
+          <p class="mt-2 text-sm text-brand-grey">Audience: all tracks. Three sessions.</p>
+          <ul class="mt-4 space-y-2 text-sm text-brand-off/85">
+            <li>Human-centered design, accessibility, and inclusion.</li>
+            <li>Privacy and consent, transparency, and bias awareness.</li>
+            <li>Safety first: review before deployment.</li>
+          </ul>
+        </article>
+
+        <article class="border border-brand-navy/60 rounded-lg p-6">
+          <h3 class="text-xl font-semibold text-brand-orange">Community AI Innovation</h3>
+          <p class="mt-2 text-sm text-brand-grey">Audience: students, local builders, and community organisers. Three sessions.</p>
+          <ul class="mt-4 space-y-2 text-sm text-brand-off/85">
+            <li>Vision and mission: technology owned by Tier-3 communities.</li>
+            <li>Local problem discovery: define the problem before the tool.</li>
+            <li>Build, deploy, and hand over: tools by and for the community.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-2xl font-semibold">How to take a course</h2>
+      <p class="mt-3 text-brand-off/80">
+        Choose a track or module and enroll through the Google Form. Course details
+        are confirmed during enrollment.
+      </p>
+      <p class="mt-4">
+        <a href={`${base}/enroll/`} class="text-lg font-medium text-brand-orange underline hover:text-brand-off">Enroll →</a>
+      </p>
+    </section>
+  </main>
+</BaseLayout>
