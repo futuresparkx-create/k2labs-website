@@ -99,6 +99,11 @@ html {
 .brand-mark:hover {
   transform: scale(1.06) rotate(-1deg);
 }
+@media (max-width: 640px) {
+  .brand-mark {
+    filter: drop-shadow(0 0 4px rgba(242, 101, 34, 0.28));
+  }
+}
 @keyframes markPulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.03); }
