@@ -4,48 +4,115 @@ import { GOOGLE_FORM_URL, GOOGLE_FORM_EMBED_SRC, GOOGLE_FORM_READY } from "../..
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 const enrollTitle = "ஒரு பாடத்திட்டத்தில் பதிவு செய்யுங்கள் - K2Labs";
-const enrollDesc = "தென்காசி, கடையத்தில் உள்ள K2Labs AI பயிற்சி மையத்தில் சேரவும். தொடக்கநிலையாளர்களுக்கான ட்ராக் A (AI வணிக கருவித்தொகுப்பு) மற்றும் CS/IT பட்டதாரிகளுக்கு ட்ராக் B (AI-நேட்டிவ் மென்பொருள் பொறியியல்).";
+const enrollDesc = "தென்காசி, கடையத்தில் உள்ள K2Labs AI பயிற்சி மையத்தில் சேரவும். தொடக்கநிலையாளர்களுக்கான ட்ராக் A (AI வணிகக் கருவித்தொகுப்பு) மற்றும் CS/IT பட்டதாரிகளுக்கு ட்ராக் B (AI-நேட்டிவ் மென்பொருள் பொறியியல்).";
 ---
 
 <BaseLayout title={enrollTitle} description={enrollDesc} locale="ta">
-  <section class="max-w-4xl mx-auto px-6 pt-16">
-    <h1 class="text-4xl md:text-5xl font-semibold">ஒரு பாடத்திட்டத்தில் பதிவு செய்யுங்கள்</h1>
+  <section class="max-w-5xl mx-auto px-6 pt-16">
+    <p class="brand-tagline text-brand-orange">பாடத்திட்ட வரைபடம்</p>
+    <h1 class="mt-3 text-4xl md:text-5xl font-semibold">ஒரு பாடத்திட்டத்தில் பதிவு செய்யுங்கள்</h1>
 
-    <p class="mt-6 text-lg text-brand-off/80">
-      K2Labs கடையம், தென்காசியில் மாணவர்கள், சிறு வணிக உரிமையாளர்கள் மற்றும் பணிபுரியும் நிபுணர்களுக்காக நடைமுறை AI பயிற்சியை நடத்துகிறது. இரண்டு தடங்கள்:
+    <p class="mt-6 max-w-3xl text-lg text-brand-off/80">
+      K2Labs கடையம், தென்காசியில் மாணவர்கள், சிறு வணிக உரிமையாளர்கள் மற்றும்
+      பணிபுரியும் வல்லுநர்களுக்காக நடைமுறை AI பயிற்சியை நடத்துகிறது. இரண்டு
+      டிராக்கள், ஒரு இலக்கு: பயன்படுத்தக்கூடிய AI திறன்.
     </p>
 
-    <div class="grid md:grid-cols-2 gap-6 mt-10">
-      <!-- Track A -->
-      <div class="border border-brand-navy/60 rounded-lg p-6">
-        <h2 class="text-2xl font-semibold text-brand-orange">Track A — AI Business Toolkit</h2>
-        <p class="mt-3 text-brand-off/80">
-          2 வாரங்கள், 10 அமர்வுகள் (ஒவ்வொன்றும் 90 நிமிடங்கள்). குறியீட்டு முறை இல்லை, கணிதம் இல்லை - ஒவ்வொரு அமர்வும் அடுத்த நாள் பயன்படுத்தக்கூடிய ஏதாவது ஒன்றில் முடிவடைகிறது: WhatsApp AI, Canva, தயாரிப்பு விளக்கங்கள், செலவு கண்காணிப்பு, ஆவண டெம்ப்ளேட்டுகள்.
-        </p>
-      </div>
+    <div class="mt-8 overflow-x-auto border border-brand-navy/60 rounded-lg">
+      <table class="w-full min-w-[680px] text-left text-sm">
+        <thead class="bg-brand-navy/40 text-brand-off">
+          <tr>
+            <th class="p-4">ட்ராக்</th>
+            <th class="p-4">யாருக்கு</th>
+            <th class="p-4">காலம்</th>
+            <th class="p-4">முக்கிய விளைவு</th>
+          </tr>
+        </thead>
+        <tbody class="text-brand-off/85">
+          <tr class="border-t border-brand-navy/40">
+            <td class="p-4 font-semibold text-brand-orange">ட்ராக் A — AI வணிகக் கருவித்தொகுப்பு</td>
+            <td class="p-4">மாணவர்கள், சிறு வணிக உரிமையாளர்கள், பணிபுரியும் வல்லுநர்கள்</td>
+            <td class="p-4">2 வாரங்கள் · 10 அமர்வுகள் × 90 நிமிடங்கள்</td>
+            <td class="p-4">குறியீடு இல்லாமல் அன்றாட வணிகப் பணிகளில் AI பயன்பாடு</td>
+          </tr>
+          <tr class="border-t border-brand-navy/40">
+            <td class="p-4 font-semibold text-brand-orange">ட்ராக் B — AI-நேட்டிவ் மென்பொருள் பொறியியல்</td>
+            <td class="p-4">CS/IT பட்டதாரிகள்</td>
+            <td class="p-4">4 வாரங்கள் · 90 நிமிட அமர்வுகள்</td>
+            <td class="p-4">விவரக்குறிப்பு சார்ந்த, ஏஜென்டிக் மென்பொருள் வழங்கல்</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-      <!-- Track B -->
-      <div class="border border-brand-navy/60 rounded-lg p-6">
-        <h2 class="text-2xl font-semibold text-brand-orange">Track B — AI-Native Software Engineering</h2>
+    <div class="grid md:grid-cols-2 gap-6 mt-8">
+      <article class="border border-brand-navy/60 rounded-lg p-6">
+        <h2 class="text-2xl font-semibold text-brand-orange">ட்ராக் A — AI வணிகக் கருவித்தொகுப்பு</h2>
         <p class="mt-3 text-brand-off/80">
-          4 வாரங்கள், 90 நிமிட அமர்வுகள். CS/IT பட்டதாரிகளுக்கு: விவரக்குறிப்பு சார்ந்த பொறியியல், ஏஜென்டிக் லூப்கள் (பை/ஓப்பன்கோடு), உள்ளூர் வரிசைப்படுத்தல், பஞ்சாயத்து ஸ்மார்ட்-சர்வீசஸ் ஹப் கேப்ஸ்டோன்.
+          அன்றாட வணிகப் பணிகளுக்கான ஆரம்பநிலைக்கு ஏற்ற AI. இது இரண்டு வாரங்கள்,
+          பத்து அமர்வுகள் — ஒவ்வொன்றும் 90 நிமிடங்கள்.
         </p>
-      </div>
+
+        <h3 class="mt-5 text-lg font-semibold">அமர்வு வரைபடம்</h3>
+        <ol class="mt-3 list-decimal list-inside space-y-2 text-sm text-brand-off/85">
+          <li><strong>வாரம் 1 · அமர்வுகள் 1–5:</strong> AI கல்வியறிவு மற்றும் பாதுகாப்பான பயன்பாடு; ப்ராம்ட்; WhatsApp AI; கேன்வா மற்றும் தயாரிப்பு விளக்கங்கள்; செலவு கண்காணிப்பு மற்றும் ஆவண டெம்ப்ளேட்டுகள்.</li>
+          <li><strong>வாரம் 2 · அமர்வுகள் 6–10:</strong> உண்மையான வணிகப் பணியைத் தேர்வு செய்யவும்; மீண்டும் பயன்படுத்தக்கூடிய கருவித்தொகுப்பை உருவாக்குதல்; ஒரு உண்மையான உதாரணத்துடன் சோதிக்கவும்; செம்மைப்படுத்தி ஆவணப்படுத்தவும்; டெமோ நாள்.</li>
+        </ol>
+
+        <h3 class="mt-5 text-lg font-semibold">நீங்கள் பெறுவீர்கள்</h3>
+        <ul class="mt-3 space-y-2 text-sm text-brand-off/85">
+          <li>மீண்டும் பயன்படுத்தக்கூடிய ப்ராம்ட் மற்றும் பணிப்பாய்வு பேக்.</li>
+          <li>கேன்வா டெம்ப்ளேட்கள் மற்றும் தயாரிப்பு நகல் எடுத்துக்காட்டுகள்.</li>
+          <li>செலவு கண்காணிப்பு மற்றும் ஆவண டெம்ப்ளேட்டுகள்.</li>
+          <li>டெமோவுக்கு தயாரான வணிகக் கருவித்தொகுப்பு.</li>
+        </ul>
+
+        <p class="mt-5 text-sm text-brand-grey">முன்நிபந்தனைகள்: இல்லை. குறியீட்டு முறை அல்லது கணிதம் தேவையில்லை.</p>
+      </article>
+
+      <article class="border border-brand-navy/60 rounded-lg p-6">
+        <h2 class="text-2xl font-semibold text-brand-orange">ட்ராக் B — AI-நேட்டிவ் மென்பொருள் பொறியியல்</h2>
+        <p class="mt-3 text-brand-off/80">
+          CS/IT பட்டதாரிகளுக்கான விவரக்குறிப்பு சார்ந்த, ஏஜென்டிக் மென்பொருள்
+          வழங்கல். இது நான்கு வாரங்கள், 90 நிமிட அமர்வுகள்.
+        </p>
+
+        <h3 class="mt-5 text-lg font-semibold">வார வரைபடம்</h3>
+        <ol class="mt-3 list-decimal list-inside space-y-2 text-sm text-brand-off/85">
+          <li><strong>வாரம் 1:</strong> விவரக்குறிப்பு சார்ந்த பொறியியல் — விவரக்குறிப்பை எழுதுதல், ஏற்றுக்கொள்ளலை வரையறுத்தல், பணிப்பாய்வு மாதிரி.</li>
+          <li><strong>வாரம் 2:</strong> பை/ஓப்பன்கோடு கொண்ட ஏஜென்டிக் லூப்கள் — கருவிகள், ப்ராம்ட்கள், சரிபார்ப்பு, மறு செய்கை.</li>
+          <li><strong>வாரம் 3:</strong> உள்ளூர் வரிசைப்படுத்தல் — உள்ளூர் உள்கட்டமைப்பில் கணினியை இயக்கி சோதிக்கவும்; தரவை வீட்டிற்கு அருகில் வைத்திருக்கவும்.</li>
+          <li><strong>வாரம் 4:</strong> கேப்ஸ்டோன் — பஞ்சாயத்து ஸ்மார்ட்-சர்வீசஸ் ஹப்; ஒருங்கிணைக்கவும், சரிபார்க்கவும், முன்மாதிரியை வழங்கவும்.</li>
+        </ol>
+
+        <h3 class="mt-5 text-lg font-semibold">நீங்கள் பெறுவீர்கள்</h3>
+        <ul class="mt-3 space-y-2 text-sm text-brand-off/85">
+          <li>பொறியியல் விவரக்குறிப்பு.</li>
+          <li>ஏஜென்டிக் பணிப்பாய்வு.</li>
+          <li>உள்ளூர் வரிசைப்படுத்தல்.</li>
+          <li>சரிபார்க்கப்பட்ட கேப்ஸ்டோன் முன்மாதிரி.</li>
+        </ul>
+
+        <p class="mt-5 text-sm text-brand-grey">முன்நிபந்தனைகள்: CS/IT பட்டம்; குறியீடு எழுதும் திறன் மற்றும் உள்ளூர் அமைப்பு அனுபவம்.</p>
+      </article>
     </div>
 
     <section class="mt-14">
-      <h2 class="text-2xl font-semibold">பதிவு செய்வது எப்படி</h2>
-      <ol class="mt-4 list-decimal list-inside space-y-2 text-brand-off/80">
-        <li>கீழே உள்ள Google படிவத்தை நிரப்பவும் (பெயர், தொடர்பு, டிராக், நகரம்).</li>
+      <h2 class="text-2xl font-semibold">பாடத்திட்டம் எவ்வாறு இயங்குகிறது</h2>
+      <ul class="mt-4 space-y-2 text-brand-off/80">
+        <li>தென்காசி, கடையத்தில் உள்ள K2Labs பயிற்சி மையத்தில் நேரடியாக.</li>
+        <li>கூட்டு அடிப்படையிலான, 90 நிமிட அமர்வுகள்.</li>
+        <li>மாணவர்கள், சிறு வணிக உரிமையாளர்கள், பணிபுரியும் வல்லுநர்கள் விண்ணப்பிக்கலாம்.</li>
+        <li>பெயர், தொடர்பு, டிராக், நகரம் உள்ள Google படிவத்தை நிரப்பவும்.</li>
         <li>48 மணி நேரத்திற்குள் இருக்கை கிடைப்பதை உறுதி செய்கிறோம்.</li>
         <li>பொருட்கள் முதல் நாளில் ஒருங்கிணைக்கப்படுகின்றன.</li>
-        <li>நாள்-1 டெமோ வகுப்பு — மையத்தைப் பார்க்க எங்களுடன் சேருங்கள்.</li>
-      </ol>
+        <li>நாள்-1 டெமோ வகுப்பு — சேர்வதற்கு முன் மையத்தைப் பார்க்க.</li>
+      </ul>
     </section>
   </section>
 
   <!-- Enrollment form -->
-  <section class="max-w-4xl mx-auto px-6 mb-24">
+  <section class="max-w-5xl mx-auto px-6 mb-24">
     <h2 class="text-2xl font-semibold mb-6">பதிவு படிவம்</h2>
 
     {GOOGLE_FORM_READY ? (

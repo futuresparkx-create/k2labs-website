@@ -8,49 +8,111 @@ const enrollDesc = "Join the K2Labs AI training centre in Kadayam, Tenkasi. Trac
 ---
 
 <BaseLayout title={enrollTitle} description={enrollDesc} locale="en">
-  <section class="max-w-4xl mx-auto px-6 pt-16">
-    <h1 class="text-4xl md:text-5xl font-semibold">Enroll in a Course</h1>
+  <section class="max-w-5xl mx-auto px-6 pt-16">
+    <p class="brand-tagline text-brand-orange">COURSE MAP</p>
+    <h1 class="mt-3 text-4xl md:text-5xl font-semibold">Enroll in a Course</h1>
 
-    <p class="mt-6 text-lg text-brand-off/80">
+    <p class="mt-6 max-w-3xl text-lg text-brand-off/80">
       K2Labs runs practical AI training in Kadayam, Tenkasi — for students,
-      small business owners, and working professionals. Two tracks:
+      small business owners, and working professionals. Two tracks, one goal:
+      usable AI capability.
     </p>
 
-    <div class="grid md:grid-cols-2 gap-6 mt-10">
-      <!-- Track A -->
-      <div class="border border-brand-navy/60 rounded-lg p-6">
+    <div class="mt-8 overflow-x-auto border border-brand-navy/60 rounded-lg">
+      <table class="w-full min-w-[680px] text-left text-sm">
+        <thead class="bg-brand-navy/40 text-brand-off">
+          <tr>
+            <th class="p-4">Track</th>
+            <th class="p-4">Who it is for</th>
+            <th class="p-4">Duration</th>
+            <th class="p-4">Core outcome</th>
+          </tr>
+        </thead>
+        <tbody class="text-brand-off/85">
+          <tr class="border-t border-brand-navy/40">
+            <td class="p-4 font-semibold text-brand-orange">Track A — AI Business Toolkit</td>
+            <td class="p-4">Students, small business owners, working professionals</td>
+            <td class="p-4">2 weeks · 10 sessions × 90 min</td>
+            <td class="p-4">Use AI in everyday business work without coding</td>
+          </tr>
+          <tr class="border-t border-brand-navy/40">
+            <td class="p-4 font-semibold text-brand-orange">Track B — AI-Native Software Engineering</td>
+            <td class="p-4">CS/IT graduates</td>
+            <td class="p-4">4 weeks · 90-min sessions</td>
+            <td class="p-4">Specification-driven, agentic software delivery</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 mt-8">
+      <article class="border border-brand-navy/60 rounded-lg p-6">
         <h2 class="text-2xl font-semibold text-brand-orange">Track A — AI Business Toolkit</h2>
         <p class="mt-3 text-brand-off/80">
-          2 weeks, 10 sessions (90 min each). No coding, no math — every session
-          ends with something usable the next day: WhatsApp AI, Canva, product
-          descriptions, expense tracking, document templates.
+          Beginner-friendly AI for everyday business work. It runs for two weeks
+          and ten 90-minute sessions.
         </p>
-      </div>
 
-      <!-- Track B -->
-      <div class="border border-brand-navy/60 rounded-lg p-6">
+        <h3 class="mt-5 text-lg font-semibold">Session map</h3>
+        <ol class="mt-3 list-decimal list-inside space-y-2 text-sm text-brand-off/85">
+          <li><strong>Week 1 · Sessions 1–5:</strong> AI literacy and safe use; prompting; WhatsApp AI; Canva and product descriptions; expense tracking and document templates.</li>
+          <li><strong>Week 2 · Sessions 6–10:</strong> choose a real business task; build a reusable toolkit; test it with a real example; refine and document it; demo day.</li>
+        </ol>
+
+        <h3 class="mt-5 text-lg font-semibold">You leave with</h3>
+        <ul class="mt-3 space-y-2 text-sm text-brand-off/85">
+          <li>A reusable prompt and workflow pack.</li>
+          <li>Canva templates and product-copy examples.</li>
+          <li>An expense tracker and document templates.</li>
+          <li>A demo-ready business toolkit.</li>
+        </ul>
+
+        <p class="mt-5 text-sm text-brand-grey">Prerequisites: none. No coding or math is required.</p>
+      </article>
+
+      <article class="border border-brand-navy/60 rounded-lg p-6">
         <h2 class="text-2xl font-semibold text-brand-orange">Track B — AI-Native Software Engineering</h2>
         <p class="mt-3 text-brand-off/80">
-          4 weeks, 90-minute sessions. For CS/IT graduates: specification-driven
-          engineering, agentic loops (pi/opencode), local deployment, Panchayat
-          Smart-Services Hub capstone.
+          Specification-driven, agentic software delivery for CS/IT graduates.
+          It runs for four weeks with 90-minute sessions.
         </p>
-      </div>
+
+        <h3 class="mt-5 text-lg font-semibold">Week map</h3>
+        <ol class="mt-3 list-decimal list-inside space-y-2 text-sm text-brand-off/85">
+          <li><strong>Week 1:</strong> specification-driven engineering — write the spec, define acceptance, and model the workflow.</li>
+          <li><strong>Week 2:</strong> agentic loops with pi/opencode — tools, prompts, verification, and iteration.</li>
+          <li><strong>Week 3:</strong> local deployment — run and test the system on local infrastructure and keep data close to home.</li>
+          <li><strong>Week 4:</strong> capstone — the Panchayat Smart-Services Hub; integrate, validate, and present the prototype.</li>
+        </ol>
+
+        <h3 class="mt-5 text-lg font-semibold">You leave with</h3>
+        <ul class="mt-3 space-y-2 text-sm text-brand-off/85">
+          <li>An engineered specification.</li>
+          <li>An agentic workflow.</li>
+          <li>A local deployment.</li>
+          <li>A validated capstone prototype.</li>
+        </ul>
+
+        <p class="mt-5 text-sm text-brand-grey">Prerequisites: a CS/IT degree and comfort with code and local setup.</p>
+      </article>
     </div>
 
     <section class="mt-14">
-      <h2 class="text-2xl font-semibold">How to Enroll</h2>
-      <ol class="mt-4 list-decimal list-inside space-y-2 text-brand-off/80">
-        <li>Fill in the Google Form below (name, contact, track, city).</li>
+      <h2 class="text-2xl font-semibold">How the course runs</h2>
+      <ul class="mt-4 space-y-2 text-brand-off/80">
+        <li>In-person at the K2Labs training centre in Kadayam, Tenkasi.</li>
+        <li>Cohort-based, hands-on sessions of 90 minutes.</li>
+        <li>Open to students, small business owners, and working professionals.</li>
+        <li>Fill the Google Form with name, contact, track, and city.</li>
         <li>We confirm seat availability within 48 hours.</li>
         <li>Materials are coordinated on the first day.</li>
-        <li>Day-1 demo class — join us there to see the centre.</li>
-      </ol>
+        <li>A Day-1 demo class lets you see the centre before you commit.</li>
+      </ul>
     </section>
   </section>
 
   <!-- Enrollment form -->
-  <section class="max-w-4xl mx-auto px-6 mb-24">
+  <section class="max-w-5xl mx-auto px-6 mb-24">
     <h2 class="text-2xl font-semibold mb-6">Enrollment Form</h2>
 
     {GOOGLE_FORM_READY ? (
